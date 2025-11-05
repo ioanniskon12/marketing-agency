@@ -10,9 +10,11 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 `;
 
 const NavContainer = styled.div`
@@ -25,17 +27,22 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled(Link)`
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #0a0a0a;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0f172a;
   text-decoration: none;
-  letter-spacing: -0.02em;
-  
+  letter-spacing: -0.03em;
+  transition: all 0.2s ease;
+
   span {
-    background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  &:hover {
+    transform: scale(1.02);
   }
 `;
 
@@ -52,7 +59,8 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
     width: 80%;
     max-width: 400px;
     flex-direction: column;
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
     padding: 6rem 2rem 2rem;
     transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
@@ -62,22 +70,45 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
 `;
 
 const NavLink = styled(Link)`
-  color: #666;
-  font-weight: 500;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  color: #475569;
+  font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-size: 0.95rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1.3rem;
+    right: 1.3rem;
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF, #6366F1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    border-radius: 2px;
+  }
 
   &:hover {
-    color: #0a0a0a;
-    background: #f5f5f5;
+    color: #0066FF;
+    background: rgba(0, 102, 255, 0.06);
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 
   @media (max-width: 968px) {
     padding: 1rem 1.5rem;
     font-size: 1.05rem;
+
+    &::after {
+      display: none;
+    }
   }
 `;
 
@@ -86,28 +117,52 @@ const DropdownWrapper = styled.div`
 `;
 
 const DropdownTrigger = styled.button`
-  color: #666;
-  font-weight: 500;
+  color: #475569;
+  font-weight: 600;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 0.95rem;
   font-family: inherit;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   gap: 0.3rem;
-
-  &:hover {
-    color: #0a0a0a;
-    background: #f5f5f5;
-  }
+  position: relative;
 
   &::after {
     content: '⌄';
     font-size: 1.2rem;
+    transition: transform 0.2s ease;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1.3rem;
+    right: 1.3rem;
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF, #6366F1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    color: #0066FF;
+    background: rgba(0, 102, 255, 0.06);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    &::after {
+      transform: rotate(180deg);
+    }
   }
 
   @media (max-width: 968px) {
@@ -115,6 +170,10 @@ const DropdownTrigger = styled.button`
     justify-content: space-between;
     padding: 1rem 1.5rem;
     font-size: 1.05rem;
+
+    &::before {
+      display: none;
+    }
   }
 `;
 
@@ -122,16 +181,17 @@ const DropdownMenu = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 0;
-  background: white;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
   padding: 0.5rem;
-  min-width: 220px;
+  min-width: 240px;
   opacity: ${props => props.$isOpen ? '1' : '0'};
   visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
   transform: translateY(${props => props.$isOpen ? '0' : '-10px'});
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 
   @media (max-width: 968px) {
     position: static;
@@ -143,38 +203,63 @@ const DropdownMenu = styled.div<{ $isOpen: boolean }>`
     display: ${props => props.$isOpen ? 'block' : 'none'};
     padding-left: 1rem;
     margin-top: 0.5rem;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: none;
   }
 `;
 
 const DropdownLink = styled(Link)`
   display: block;
-  color: #666;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  color: #475569;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-size: 0.95rem;
+  font-weight: 500;
 
   &:hover {
-    background: #f8f8f8;
-    color: #667eea;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+    color: #0066FF;
+    transform: translateX(4px);
   }
 `;
 
 const CTAButton = styled(Link)`
-  padding: 0.7rem 1.8rem;
-  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-size: 0.95rem;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 24px rgba(0, 102, 255, 0.4);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   @media (max-width: 968px) {
@@ -190,9 +275,18 @@ const MenuButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #0a0a0a;
+  color: #0f172a;
   z-index: 1001;
   padding: 0.5rem;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 
   @media (max-width: 968px) {
     display: block;
@@ -201,7 +295,7 @@ const MenuButton = styled.button`
 
 const Overlay = styled.div<{ $isOpen: boolean }>`
   display: none;
-  
+
   @media (max-width: 968px) {
     display: block;
     position: fixed;
@@ -210,6 +304,7 @@ const Overlay = styled.div<{ $isOpen: boolean }>`
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
     opacity: ${props => props.$isOpen ? '1' : '0'};
     visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
     transition: all 0.3s ease;
@@ -228,8 +323,8 @@ export default function Navigation() {
           <Logo href="/">Creative<span>Hub</span></Logo>
           <NavLinks $isOpen={isOpen}>
             <NavLink href="/" onClick={() => setIsOpen(false)}>Home</NavLink>
-            
-            <DropdownWrapper 
+
+            <DropdownWrapper
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
@@ -245,7 +340,7 @@ export default function Navigation() {
                 <DropdownLink href="/services/video-production" onClick={() => setIsOpen(false)}>Video Production</DropdownLink>
               </DropdownMenu>
             </DropdownWrapper>
-            
+
             <NavLink href="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</NavLink>
             <NavLink href="/pricing" onClick={() => setIsOpen(false)}>Pricing</NavLink>
             <NavLink href="/blog" onClick={() => setIsOpen(false)}>Blog</NavLink>

@@ -8,13 +8,13 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   position: relative;
   overflow: hidden;
   padding: 2rem;
 `;
 
-const GeometricShape = styled.div<{ $top?: string; $left?: string; $right?: string; $bottom?: string; $size?: string; $color?: string; $rotation?: string }>`
+const GeometricShape = styled.div<{ $top?: string; $left?: string; $right?: string; $bottom?: string; $size?: string; $gradient?: string; $rotation?: string }>`
   position: absolute;
   width: ${props => props.$size || '300px'};
   height: ${props => props.$size || '300px'};
@@ -22,11 +22,12 @@ const GeometricShape = styled.div<{ $top?: string; $left?: string; $right?: stri
   left: ${props => props.$left || 'auto'};
   right: ${props => props.$right || 'auto'};
   bottom: ${props => props.$bottom || 'auto'};
-  background: ${props => props.$color || 'rgba(102, 126, 234, 0.1)'};
+  background: ${props => props.$gradient || 'linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)'};
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   transform: rotate(${props => props.$rotation || '0deg'});
   animation: float 20s ease-in-out infinite;
   z-index: 0;
+  filter: blur(40px);
 
   @keyframes float {
     0%, 100% { transform: translate(0, 0) rotate(${props => props.$rotation || '0deg'}); }
@@ -45,15 +46,17 @@ const Badge = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  background: rgba(102, 126, 234, 0.1);
-  border: 2px solid rgba(102, 126, 234, 0.2);
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+  border: 2px solid rgba(0, 102, 255, 0.2);
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.95rem;
-  color: #667eea;
+  color: #0066FF;
   margin-bottom: 2rem;
   animation: fadeInUp 0.8s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
 
   @keyframes fadeInUp {
     from {
@@ -68,31 +71,46 @@ const Badge = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 800;
-  color: #0a0a0a;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 900;
+  color: #0f172a;
   margin-bottom: 1.5rem;
   line-height: 1.1;
   animation: fadeInUp 0.8s ease 0.1s backwards;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 `;
 
 const Highlight = styled.span`
-  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
+    border-radius: 2px;
+    opacity: 0.3;
+  }
 `;
 
 const HeroSubtitle = styled.p`
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: #666;
+  color: #475569;
   margin-bottom: 3rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   animation: fadeInUp 0.8s ease 0.2s backwards;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 400;
 `;
 
 const HeroButtons = styled.div`
@@ -105,91 +123,158 @@ const HeroButtons = styled.div`
 `;
 
 const PrimaryButton = styled(Link)`
-  padding: 1.2rem 2.8rem;
-  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  padding: 1.3rem 3rem;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
 const SecondaryButton = styled(Link)`
-  padding: 1.2rem 2.8rem;
+  padding: 1.3rem 3rem;
   background: white;
-  color: #0a0a0a;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
+  color: #0f172a;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
   &:hover {
-    border-color: #667eea;
+    border-color: #0066FF;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.15);
+    color: #0066FF;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
 const Stats = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
+  gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
   animation: fadeInUp 0.8s ease 0.4s backwards;
 `;
 
 const StatCard = styled.div`
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  border: 2px solid #f5f5f5;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0066FF, #6366F1, #EC4899);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    border-color: #667eea;
+    border-color: #0066FF;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+
+    &::before {
+      transform: scaleX(1);
+    }
   }
 `;
 
 const StatNumber = styled.div`
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.5rem;
+  line-height: 1;
 `;
 
 const StatLabel = styled.div`
   font-size: 1rem;
-  color: #666;
-  font-weight: 500;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 `;
 
 export default function Hero() {
   return (
     <HeroSection id="home">
-      <GeometricShape $top="10%" $left="5%" $size="400px" $color="rgba(102, 126, 234, 0.08)" $rotation="25deg" />
-      <GeometricShape $bottom="15%" $right="8%" $size="350px" $color="rgba(118, 75, 162, 0.08)" $rotation="-15deg" />
-      <GeometricShape $top="50%" $left="80%" $size="200px" $color="rgba(102, 126, 234, 0.06)" $rotation="45deg" />
-      
+      <GeometricShape
+        $top="10%"
+        $left="5%"
+        $size="500px"
+        $gradient="linear-gradient(135deg, rgba(0, 102, 255, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%)"
+        $rotation="25deg"
+      />
+      <GeometricShape
+        $bottom="10%"
+        $right="5%"
+        $size="450px"
+        $gradient="linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)"
+        $rotation="-15deg"
+      />
+      <GeometricShape
+        $top="50%"
+        $left="75%"
+        $size="300px"
+        $gradient="linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(0, 102, 255, 0.08) 100%)"
+        $rotation="45deg"
+      />
+
       <HeroContent>
         <Badge>
           ✨ #1 Marketing Agency 2025
@@ -198,7 +283,7 @@ export default function Hero() {
           Transform Your Brand<br />with <Highlight>Creative Marketing</Highlight>
         </HeroTitle>
         <HeroSubtitle>
-          We craft compelling digital experiences that drive real results. From strategy to execution, 
+          We craft compelling digital experiences that drive real results. From strategy to execution,
           we're your trusted partner in growth.
         </HeroSubtitle>
         <HeroButtons>

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 const ContactSection = styled.section`
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
   position: relative;
   overflow: hidden;
 
@@ -28,101 +28,143 @@ const Container = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 900;
   text-align: center;
   margin-bottom: 1rem;
   color: white;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 `;
 
 const SectionSubtitle = styled.p`
   text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.25rem;
   margin-bottom: 3rem;
+  font-weight: 400;
 `;
 
 const ContactForm = styled.form`
-  background: white;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
   padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 `;
 
 const FormGroup = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 `;
 
 const Label = styled.label`
   display: block;
-  margin-bottom: 0.5rem;
-  color: #333;
-  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #0f172a;
+  font-weight: 700;
   font-size: 0.95rem;
+  letter-spacing: -0.01em;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0066FF;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+  }
+
+  &::placeholder {
+    color: #94a3b8;
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
   font-family: inherit;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0066FF;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+  }
+
+  &::placeholder {
+    color: #94a3b8;
   }
 `;
 
 const SubmitButton = styled.button`
   width: 100%;
-  padding: 1.2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.3rem;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+    transform: none;
   }
 `;
 
 const SuccessMessage = styled.div`
-  background: #4caf50;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   color: white;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 1.2rem;
+  border-radius: 12px;
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
 `;
 
 export default function Contact() {
@@ -145,14 +187,14 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setShowSuccess(true);
     setFormData({ name: '', email: '', company: '', message: '' });
-    
+
     setTimeout(() => setShowSuccess(false), 5000);
   };
 
