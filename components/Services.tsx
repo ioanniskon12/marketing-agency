@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const ServicesSection = styled.section`
   padding: 8rem 2rem;
@@ -50,22 +51,175 @@ const SectionSubtitle = styled.p`
   font-weight: 400;
 `;
 
-const ServicesGrid = styled.div`
+const AccordionContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+const AccordionItem = styled.div<{ $isOpen: boolean; $gradient: string }>`
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  border-radius: 20px;
+  border: 2px solid ${props => props.$isOpen ? 'transparent' : 'rgba(226, 232, 240, 0.8)'};
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.$isOpen ? '0 20px 50px rgba(0, 102, 255, 0.2)' : '0 4px 12px rgba(0, 0, 0, 0.05)'};
+
+  ${props => props.$isOpen && `
+    background: ${props.$gradient};
+  `}
+`;
+
+const AccordionHeader = styled.button<{ $isOpen: boolean }>`
+  width: 100%;
+  padding: 2rem 2.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+`;
+
+const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+`;
+
+const IconWrapper = styled.div<{ $isOpen: boolean }>`
+  width: 70px;
+  height: 70px;
+  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)'};
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.$isOpen ? '0 8px 24px rgba(255, 255, 255, 0.3)' : '0 4px 12px rgba(0, 0, 0, 0.08)'};
+  flex-shrink: 0;
+`;
+
+const HeaderContent = styled.div``;
+
+const ServiceTitle = styled.h3<{ $isOpen: boolean }>`
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: ${props => props.$isOpen ? '#ffffff' : '#0f172a'};
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+`;
+
+const ServiceShortDesc = styled.p<{ $isOpen: boolean }>`
+  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.9)' : '#64748b'};
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+`;
+
+const ExpandIcon = styled.div<{ $isOpen: boolean }>`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 102, 255, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: ${props => props.$isOpen ? '#ffffff' : '#0066FF'};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(${props => props.$isOpen ? '180deg' : '0deg'});
+  flex-shrink: 0;
+`;
+
+const AccordionContent = styled.div<{ $isOpen: boolean }>`
+  max-height: ${props => props.$isOpen ? '1000px' : '0'};
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+const ContentInner = styled.div`
+  padding: 0 2.5rem 2rem 2.5rem;
+`;
+
+const ServiceDescription = styled.p<{ $isOpen: boolean }>`
+  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : '#475569'};
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+`;
+
+const FeatureList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+`;
+
+const FeatureItem = styled.li<{ $isOpen: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : '#475569'};
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &::before {
+    content: '✓';
+    width: 24px;
+    height: 24px;
+    background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 102, 255, 0.15)'};
+    color: ${props => props.$isOpen ? '#ffffff' : '#0066FF'};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+`;
+
+const LearnMoreButton = styled(Link)<{ $isOpen: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'};
+  color: ${props => props.$isOpen ? '#0066FF' : '#ffffff'};
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  &::after {
+    content: '→';
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+  }
 `;
 
 const gradients = [
-  'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)',
-  'linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
-  'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)',
-  'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%)',
-  'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%)',
-  'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)',
-];
-
-const hoverGradients = [
   'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
   'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)',
   'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)',
@@ -74,173 +228,64 @@ const hoverGradients = [
   'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
 ];
 
-const ServiceCard = styled(Link)<{ $gradient: string; $hoverGradient: string }>`
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  padding: 3rem;
-  border-radius: 24px;
-  border: 2px solid rgba(226, 232, 240, 0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${props => props.$gradient};
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${props => props.$hoverGradient};
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  &:hover {
-    transform: translateY(-8px);
-    border-color: transparent;
-    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2);
-
-    &::before {
-      opacity: 0;
-    }
-
-    &::after {
-      opacity: 1;
-    }
-  }
-`;
-
-const IconWrapper = styled.div`
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-  ${ServiceCard}:hover & {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
-  }
-`;
-
-const ServiceTitle = styled.h3`
-  font-size: 1.7rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #0f172a;
-  letter-spacing: -0.02em;
-
-  ${ServiceCard}:hover & {
-    color: #ffffff;
-  }
-`;
-
-const ServiceDescription = styled.p`
-  color: #475569;
-  line-height: 1.7;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease;
-
-  ${ServiceCard}:hover & {
-    color: rgba(255, 255, 255, 0.95);
-  }
-`;
-
-const LearnMore = styled.span`
-  color: #0066FF;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-
-  &::after {
-    content: '→';
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  ${ServiceCard}:hover & {
-    color: #ffffff;
-
-    &::after {
-      transform: translateX(5px);
-    }
-  }
-`;
-
 const services = [
   {
     icon: '🎯',
     title: 'Brand Strategy',
-    description: 'Develop a powerful brand identity that resonates with your target audience and sets you apart.',
+    shortDesc: 'Build a powerful brand identity',
+    description: 'Develop a powerful brand identity that resonates with your target audience and sets you apart from the competition. We help you define your brand essence and communicate it effectively.',
+    features: ['Brand Identity Design', 'Market Research', 'Brand Positioning', 'Messaging Strategy'],
     link: '/services/brand-strategy'
   },
   {
     icon: '📱',
     title: 'Social Media Marketing',
-    description: 'Engage your audience across all platforms with creative content and data-driven strategies.',
+    shortDesc: 'Engage across all platforms',
+    description: 'Engage your audience across all platforms with creative content and data-driven strategies. We create compelling social media campaigns that drive engagement and build community.',
+    features: ['Content Strategy', 'Community Management', 'Social Analytics', 'Influencer Partnerships'],
     link: '/services/social-media'
   },
   {
     icon: '🎨',
     title: 'Creative Design',
-    description: 'Eye-catching designs that capture attention and communicate your message effectively.',
+    shortDesc: 'Eye-catching visual content',
+    description: 'Eye-catching designs that capture attention and communicate your message effectively. Our creative team brings your brand vision to life with stunning visuals.',
+    features: ['Graphic Design', 'UI/UX Design', 'Print Materials', 'Brand Assets'],
     link: '/services/creative-design'
   },
   {
     icon: '📈',
     title: 'Digital Marketing',
-    description: 'Comprehensive campaigns that drive traffic, generate leads, and boost conversions.',
+    shortDesc: 'Drive traffic and conversions',
+    description: 'Comprehensive campaigns that drive traffic, generate leads, and boost conversions. We use data-driven strategies to maximize your ROI across all digital channels.',
+    features: ['SEO & SEM', 'PPC Campaigns', 'Email Marketing', 'Conversion Optimization'],
     link: '/services/digital-marketing'
   },
   {
     icon: '✍️',
     title: 'Content Creation',
-    description: 'Compelling content that tells your story and drives meaningful engagement.',
+    shortDesc: 'Tell your story effectively',
+    description: 'Compelling content that tells your story and drives meaningful engagement. From blog posts to case studies, we create content that resonates with your audience.',
+    features: ['Copywriting', 'Blog Content', 'Case Studies', 'Content Strategy'],
     link: '/services/content-creation'
   },
   {
     icon: '🎬',
     title: 'Video Production',
-    description: 'Professional video content that brings your brand to life and captivates audiences.',
+    shortDesc: 'Bring your brand to life',
+    description: 'Professional video content that brings your brand to life and captivates audiences. We handle everything from concept to final delivery.',
+    features: ['Video Production', 'Motion Graphics', 'Video Editing', 'Animation'],
     link: '/services/video-production'
   }
 ];
 
 export default function Services() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <ServicesSection id="services">
       <Container>
@@ -251,21 +296,59 @@ export default function Services() {
             Comprehensive marketing solutions tailored to your unique business needs
           </SectionSubtitle>
         </Header>
-        <ServicesGrid>
+
+        <AccordionContainer>
           {services.map((service, index) => (
-            <ServiceCard
+            <AccordionItem
               key={index}
-              href={service.link}
+              $isOpen={openIndex === index}
               $gradient={gradients[index]}
-              $hoverGradient={hoverGradients[index]}
             >
-              <IconWrapper>{service.icon}</IconWrapper>
-              <ServiceTitle>{service.title}</ServiceTitle>
-              <ServiceDescription>{service.description}</ServiceDescription>
-              <LearnMore>Learn more</LearnMore>
-            </ServiceCard>
+              <AccordionHeader
+                $isOpen={openIndex === index}
+                onClick={() => toggleAccordion(index)}
+              >
+                <HeaderLeft>
+                  <IconWrapper $isOpen={openIndex === index}>
+                    {service.icon}
+                  </IconWrapper>
+                  <HeaderContent>
+                    <ServiceTitle $isOpen={openIndex === index}>
+                      {service.title}
+                    </ServiceTitle>
+                    <ServiceShortDesc $isOpen={openIndex === index}>
+                      {service.shortDesc}
+                    </ServiceShortDesc>
+                  </HeaderContent>
+                </HeaderLeft>
+                <ExpandIcon $isOpen={openIndex === index}>
+                  ⌄
+                </ExpandIcon>
+              </AccordionHeader>
+
+              <AccordionContent $isOpen={openIndex === index}>
+                <ContentInner>
+                  <ServiceDescription $isOpen={openIndex === index}>
+                    {service.description}
+                  </ServiceDescription>
+                  <FeatureList>
+                    {service.features.map((feature, fIndex) => (
+                      <FeatureItem key={fIndex} $isOpen={openIndex === index}>
+                        {feature}
+                      </FeatureItem>
+                    ))}
+                  </FeatureList>
+                  <LearnMoreButton
+                    href={service.link}
+                    $isOpen={openIndex === index}
+                  >
+                    Learn more
+                  </LearnMoreButton>
+                </ContentInner>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </ServicesGrid>
+        </AccordionContainer>
       </Container>
     </ServicesSection>
   );

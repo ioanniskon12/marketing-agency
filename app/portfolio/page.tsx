@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -49,17 +49,17 @@ const FilterButtons = styled.div`
 
 const FilterButton = styled.button<{ $active?: boolean }>`
   padding: 0.8rem 1.5rem;
-  background: ${props => props.$active ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : '#f8f9fa'};
-  color: ${props => props.$active ? 'white' : '#333'};
+  background: ${props => props.$active ? 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)' : '#f8f9fa'};
+  color: ${props => props.$active ? 'white' : '#475569'};
   border: none;
-  border-radius: 25px;
+  border-radius: 32px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
   }
 `;
 
@@ -76,7 +76,7 @@ const Grid = styled.div`
 
 const ProjectCard = styled.div`
   background: white;
-  border-radius: 15px;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -84,7 +84,7 @@ const ProjectCard = styled.div`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
   }
 `;
 
@@ -120,7 +120,7 @@ const ProjectContent = styled.div`
 `;
 
 const ProjectCategory = styled.div`
-  color: #667eea;
+  color: #0066FF;
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -132,11 +132,11 @@ const ProjectTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #0f172a;
 `;
 
 const ProjectDescription = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 `;
@@ -153,12 +153,12 @@ const Stat = styled.div``;
 const StatValue = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
-  color: #667eea;
+  color: #0066FF;
 `;
 
 const StatLabel = styled.div`
   font-size: 0.85rem;
-  color: #999;
+  color: #475569;
 `;
 
 const projects = [
@@ -167,7 +167,7 @@ const projects = [
     title: 'TechFlow Rebrand',
     description: 'Complete brand transformation for a leading tech startup, resulting in 300% increase in brand recognition.',
     emoji: '🚀',
-    color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
     engagement: '+300%',
     reach: '2M+'
   },
@@ -176,7 +176,7 @@ const projects = [
     title: 'FitLife Campaign',
     description: 'Social media strategy that grew followers from 5K to 250K in 6 months for a fitness brand.',
     emoji: '💪',
-    color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    color: 'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)',
     engagement: '+5000%',
     reach: '10M+'
   },
@@ -185,7 +185,7 @@ const projects = [
     title: 'E-commerce Growth',
     description: 'Comprehensive digital marketing campaign that increased online sales by 450% for a fashion retailer.',
     emoji: '🛍️',
-    color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    color: 'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)',
     engagement: '+450%',
     reach: '5M+'
   },
@@ -194,7 +194,7 @@ const projects = [
     title: 'Urban Café Visual Identity',
     description: 'Modern brand identity design that helped a local café chain expand to 15 locations.',
     emoji: '☕',
-    color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    color: 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)',
     engagement: '+200%',
     reach: '1M+'
   },
@@ -203,7 +203,7 @@ const projects = [
     title: 'SaaS Content Hub',
     description: 'Content strategy and creation that positioned a SaaS company as industry thought leaders.',
     emoji: '📝',
-    color: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+    color: 'linear-gradient(135deg, #6366F1 0%, #0066FF 100%)',
     engagement: '+380%',
     reach: '3M+'
   },
@@ -212,7 +212,7 @@ const projects = [
     title: 'Product Launch Video',
     description: 'Award-winning product launch video that generated 5M views and drove record-breaking sales.',
     emoji: '🎬',
-    color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+    color: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
     engagement: '+600%',
     reach: '5M+'
   }
@@ -273,20 +273,21 @@ export default function PortfolioPage() {
             </Grid>
 
             <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to Be Our Next Success Story?</h2>
-              <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#0f172a' }}>Ready to Be Our Next Success Story?</h2>
+              <p style={{ fontSize: '1.2rem', color: '#475569', marginBottom: '2rem' }}>
                 Let's create something amazing together
               </p>
               <Link href="/contact" style={{
                 display: 'inline-block',
                 padding: '1.2rem 3rem',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
                 color: 'white',
-                borderRadius: '30px',
+                borderRadius: '32px',
                 fontWeight: '700',
                 fontSize: '1.1rem',
                 textDecoration: 'none',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 20px rgba(0, 102, 255, 0.3)'
               }}>
                 Start Your Project
               </Link>

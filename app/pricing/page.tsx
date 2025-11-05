@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -47,10 +47,10 @@ const PricingGrid = styled.div`
 `;
 
 const PricingCard = styled.div<{ $featured?: boolean }>`
-  background: ${props => props.$featured ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'white'};
-  color: ${props => props.$featured ? 'white' : '#333'};
+  background: ${props => props.$featured ? 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)' : 'white'};
+  color: ${props => props.$featured ? 'white' : '#0f172a'};
   padding: 3rem 2.5rem;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -58,7 +58,7 @@ const PricingCard = styled.div<{ $featured?: boolean }>`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.35);
   }
 `;
 
@@ -67,12 +67,13 @@ const Badge = styled.div`
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ffd700;
-  color: #333;
+  background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+  color: white;
   padding: 0.5rem 1.5rem;
-  border-radius: 20px;
+  border-radius: 24px;
   font-weight: 700;
   font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
 `;
 
 const PlanName = styled.h3`
@@ -113,8 +114,8 @@ const Feature = styled.li`
     content: '✓';
     width: 24px;
     height: 24px;
-    background: ${props => props.color === 'white' ? 'rgba(255,255,255,0.2)' : '#667eea'};
-    color: ${props => props.color === 'white' ? 'white' : 'white'};
+    background: ${props => props.color === 'white' ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'};
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -127,10 +128,10 @@ const CTAButton = styled(Link)<{ $variant?: string }>`
   display: block;
   width: 100%;
   padding: 1.2rem;
-  background: ${props => props.$variant === 'white' ? 'white' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
-  color: ${props => props.$variant === 'white' ? '#667eea' : 'white'};
+  background: ${props => props.$variant === 'white' ? 'white' : 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'};
+  color: ${props => props.$variant === 'white' ? '#0066FF' : 'white'};
   text-align: center;
-  border-radius: 10px;
+  border-radius: 16px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -138,7 +139,7 @@ const CTAButton = styled(Link)<{ $variant?: string }>`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
   }
 `;
 
@@ -146,7 +147,7 @@ const FAQSection = styled.div`
   margin-top: 6rem;
   padding: 4rem 2rem;
   background: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 24px;
 `;
 
 const FAQItem = styled.div`
@@ -157,11 +158,11 @@ const Question = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #0f172a;
 `;
 
 const Answer = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
 `;
 
@@ -233,7 +234,7 @@ export default function PricingPage() {
             </PricingGrid>
 
             <FAQSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '3rem', color: '#0f172a' }}>
                 Frequently Asked Questions
               </h2>
               <div style={{ maxWidth: '800px', margin: '0 auto' }}>

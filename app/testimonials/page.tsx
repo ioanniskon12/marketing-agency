@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -49,13 +49,13 @@ const Grid = styled.div`
 const TestimonialCard = styled.div`
   background: #f8f9fa;
   padding: 2.5rem;
-  border-radius: 20px;
+  border-radius: 24px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
   }
 
   &::before {
@@ -64,7 +64,7 @@ const TestimonialCard = styled.div`
     top: -20px;
     left: 20px;
     font-size: 6rem;
-    color: #667eea;
+    color: #0066FF;
     opacity: 0.2;
     font-family: Georgia, serif;
   }
@@ -77,7 +77,7 @@ const Rating = styled.div`
 `;
 
 const TestimonialText = styled.p`
-  color: #333;
+  color: #0f172a;
   line-height: 1.8;
   font-size: 1.05rem;
   margin-bottom: 2rem;
@@ -108,19 +108,19 @@ const ClientDetails = styled.div``;
 
 const ClientName = styled.div`
   font-weight: 700;
-  color: #333;
+  color: #0f172a;
   font-size: 1.1rem;
 `;
 
 const ClientRole = styled.div`
-  color: #666;
+  color: #475569;
   font-size: 0.95rem;
 `;
 
 const StatsSection = styled.div`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   padding: 5rem 2rem;
-  border-radius: 20px;
+  border-radius: 24px;
   color: white;
   text-align: center;
   margin: 4rem 0;
@@ -150,7 +150,7 @@ const CTASection = styled.div`
   text-align: center;
   padding: 4rem 2rem;
   background: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 24px;
 `;
 
 const testimonials = [
@@ -159,7 +159,7 @@ const testimonials = [
     name: "Jennifer Smith",
     role: "CEO, TechStart Inc.",
     avatar: "👩‍💼",
-    color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "linear-gradient(135deg, #0066FF 0%, #6366F1 100%)",
     rating: 5
   },
   {
@@ -167,7 +167,7 @@ const testimonials = [
     name: "Michael Brown",
     role: "Marketing Director, FitLife",
     avatar: "👨‍💼",
-    color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    color: "linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)",
     rating: 5
   },
   {
@@ -175,7 +175,7 @@ const testimonials = [
     name: "Sarah Davis",
     role: "Founder, EcoStore",
     avatar: "👩‍💻",
-    color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+    color: "linear-gradient(135deg, #06B6D4 0%, #10B981 100%)",
     rating: 5
   },
   {
@@ -183,7 +183,7 @@ const testimonials = [
     name: "David Wilson",
     role: "CMO, Urban Café",
     avatar: "👨‍🎨",
-    color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+    color: "linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)",
     rating: 5
   },
   {
@@ -191,7 +191,7 @@ const testimonials = [
     name: "Emily Chen",
     role: "CEO, InnovateTech",
     avatar: "👩‍🔬",
-    color: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
+    color: "linear-gradient(135deg, #6366F1 0%, #0066FF 100%)",
     rating: 5
   },
   {
@@ -199,7 +199,7 @@ const testimonials = [
     name: "Robert Martinez",
     role: "Director, ContentPro",
     avatar: "👨‍💻",
-    color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    color: "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
     rating: 5
   }
 ];
@@ -240,10 +240,10 @@ export default function TestimonialsPage() {
             </Grid>
 
             <StatsSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem', color: 'white' }}>
                 Results That Speak for Themselves
               </h2>
-              <p style={{ fontSize: '1.2rem', opacity: '0.9' }}>
+              <p style={{ fontSize: '1.2rem', opacity: '0.9', color: 'white' }}>
                 Our client success is our success
               </p>
               <StatsGrid>
@@ -267,20 +267,21 @@ export default function TestimonialsPage() {
             </StatsSection>
 
             <CTASection>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to Join Our Success Stories?</h2>
-              <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#0f172a' }}>Ready to Join Our Success Stories?</h2>
+              <p style={{ fontSize: '1.2rem', color: '#475569', marginBottom: '2rem' }}>
                 Let's create your marketing success story together
               </p>
               <Link href="/contact" style={{
                 display: 'inline-block',
                 padding: '1.2rem 3rem',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
                 color: 'white',
-                borderRadius: '30px',
+                borderRadius: '32px',
                 fontWeight: '700',
                 fontSize: '1.1rem',
                 textDecoration: 'none',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 20px rgba(0, 102, 255, 0.3)'
               }}>
                 Get Started Today
               </Link>

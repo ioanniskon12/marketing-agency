@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -55,12 +55,13 @@ const ContactInfo = styled.div``;
 const InfoCard = styled.div`
   background: #f8f9fa;
   padding: 2rem;
-  border-radius: 15px;
+  border-radius: 20px;
   margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.15);
   }
 `;
 
@@ -73,17 +74,17 @@ const InfoTitle = styled.h3`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #0f172a;
 `;
 
 const InfoText = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
   font-size: 1.05rem;
 `;
 
 const InfoLink = styled.a`
-  color: #667eea;
+  color: #0066FF;
   text-decoration: none;
   font-weight: 600;
 
@@ -97,7 +98,7 @@ const FormContainer = styled.div``;
 const ContactForm = styled.form`
   background: white;
   padding: 3rem;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 `;
 
@@ -108,7 +109,7 @@ const FormGroup = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #0f172a;
   font-weight: 600;
   font-size: 0.95rem;
 `;
@@ -117,13 +118,13 @@ const Input = styled.input`
   width: 100%;
   padding: 1rem;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 16px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0066FF;
   }
 `;
 
@@ -131,7 +132,7 @@ const Select = styled.select`
   width: 100%;
   padding: 1rem;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 16px;
   font-size: 1rem;
   background: white;
   cursor: pointer;
@@ -139,7 +140,7 @@ const Select = styled.select`
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0066FF;
   }
 `;
 
@@ -147,7 +148,7 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 1rem;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 16px;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
@@ -156,17 +157,17 @@ const TextArea = styled.textarea`
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0066FF;
   }
 `;
 
 const SubmitButton = styled.button`
   width: 100%;
   padding: 1.2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 16px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
@@ -174,7 +175,7 @@ const SubmitButton = styled.button`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
   }
 
   &:disabled {
@@ -184,10 +185,10 @@ const SubmitButton = styled.button`
 `;
 
 const SuccessMessage = styled.div`
-  background: #4caf50;
+  background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
   color: white;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 16px;
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 600;
@@ -197,14 +198,14 @@ const MapSection = styled.div`
   margin-top: 4rem;
   padding: 3rem;
   background: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 24px;
   text-align: center;
 `;
 
 const MapPlaceholder = styled.div`
   height: 400px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 15px;
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,7 +274,7 @@ export default function ContactPage() {
           <Container>
             <ContentGrid>
               <ContactInfo>
-                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem' }}>
+                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem', color: '#0f172a' }}>
                   Contact Information
                 </h2>
                 
@@ -326,7 +327,7 @@ export default function ContactPage() {
 
               <FormContainer>
                 <ContactForm onSubmit={handleSubmit}>
-                  <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem' }}>
+                  <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem', color: '#0f172a' }}>
                     Send Us a Message
                   </h2>
                   
@@ -442,10 +443,10 @@ export default function ContactPage() {
             </ContentGrid>
 
             <MapSection>
-              <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '1rem', color: '#0f172a' }}>
                 Find Us Here
               </h2>
-              <p style={{ color: '#666', fontSize: '1.1rem' }}>
+              <p style={{ color: '#475569', fontSize: '1.1rem' }}>
                 Visit our office or schedule a virtual meeting
               </p>
               <MapPlaceholder>

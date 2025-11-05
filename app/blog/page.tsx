@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -47,7 +47,7 @@ const Grid = styled.div`
 
 const ArticleCard = styled.article`
   background: white;
-  border-radius: 15px;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -55,7 +55,7 @@ const ArticleCard = styled.article`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
   }
 `;
 
@@ -77,11 +77,11 @@ const ArticleMeta = styled.div`
   gap: 1rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-  color: #999;
+  color: #475569;
 `;
 
 const Category = styled.span`
-  color: #667eea;
+  color: #0066FF;
   font-weight: 600;
 `;
 
@@ -89,18 +89,18 @@ const ArticleTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #333;
+  color: #0f172a;
   line-height: 1.3;
 `;
 
 const ArticleExcerpt = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 `;
 
 const ReadMore = styled.span`
-  color: #667eea;
+  color: #0066FF;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -124,7 +124,7 @@ const articles = [
     readTime: '5 min read',
     excerpt: 'Stay ahead of the curve with these emerging social media trends that will shape digital marketing in the coming year.',
     emoji: '📱',
-    color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    color: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'
   },
   {
     title: 'The Ultimate Guide to Brand Positioning',
@@ -133,7 +133,7 @@ const articles = [
     readTime: '8 min read',
     excerpt: 'Learn how to position your brand effectively in a competitive market and stand out from the crowd.',
     emoji: '🎯',
-    color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+    color: 'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)'
   },
   {
     title: 'How Video Marketing Drives Conversions',
@@ -142,7 +142,7 @@ const articles = [
     readTime: '6 min read',
     excerpt: 'Discover the power of video content and how it can dramatically increase your conversion rates.',
     emoji: '🎬',
-    color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+    color: 'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)'
   },
   {
     title: 'Content Marketing ROI: Measuring Success',
@@ -151,7 +151,7 @@ const articles = [
     readTime: '7 min read',
     excerpt: 'Learn how to measure and maximize the return on investment from your content marketing efforts.',
     emoji: '📊',
-    color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    color: 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)'
   },
   {
     title: 'SEO Best Practices for 2025',
@@ -160,7 +160,7 @@ const articles = [
     readTime: '10 min read',
     excerpt: 'Master the latest SEO techniques to improve your search rankings and drive organic traffic.',
     emoji: '🔍',
-    color: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+    color: 'linear-gradient(135deg, #6366F1 0%, #0066FF 100%)'
   },
   {
     title: 'Building an Authentic Brand Voice',
@@ -169,7 +169,7 @@ const articles = [
     readTime: '5 min read',
     excerpt: 'Create a unique brand voice that resonates with your audience and builds lasting connections.',
     emoji: '🎤',
-    color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+    color: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)'
   }
 ];
 
@@ -211,9 +211,9 @@ export default function BlogPage() {
               ))}
             </Grid>
 
-            <div style={{ textAlign: 'center', marginTop: '5rem', padding: '4rem 2rem', background: '#f8f9fa', borderRadius: '20px' }}>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Want Marketing Tips in Your Inbox?</h2>
-              <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+            <div style={{ textAlign: 'center', marginTop: '5rem', padding: '4rem 2rem', background: '#f8f9fa', borderRadius: '24px' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#0f172a' }}>Want Marketing Tips in Your Inbox?</h2>
+              <p style={{ fontSize: '1.2rem', color: '#475569', marginBottom: '2rem' }}>
                 Subscribe to our newsletter for weekly marketing insights
               </p>
               <div style={{ display: 'flex', gap: '1rem', maxWidth: '500px', margin: '0 auto', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -225,18 +225,19 @@ export default function BlogPage() {
                     minWidth: '250px',
                     padding: '1rem 1.5rem',
                     border: '2px solid #e0e0e0',
-                    borderRadius: '30px',
+                    borderRadius: '32px',
                     fontSize: '1rem'
                   }}
                 />
                 <button style={{
                   padding: '1rem 2.5rem',
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  background: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
                   color: 'white',
                   border: 'none',
-                  borderRadius: '30px',
+                  borderRadius: '32px',
                   fontWeight: '700',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 20px rgba(0, 102, 255, 0.3)'
                 }}>
                   Subscribe
                 </button>

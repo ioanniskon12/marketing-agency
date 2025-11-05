@@ -10,7 +10,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
   color: white;
   text-align: center;
 `;
@@ -68,7 +68,7 @@ const Avatar = styled.div<{ $color: string }>`
   transition: box-shadow 0.3s ease;
 
   ${TeamCard}:hover & {
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.3);
   }
 `;
 
@@ -76,17 +76,17 @@ const MemberName = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #0f172a;
 `;
 
 const MemberRole = styled.div`
-  color: #667eea;
+  color: #0066FF;
   font-weight: 600;
   margin-bottom: 1rem;
 `;
 
 const MemberBio = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 `;
@@ -109,7 +109,7 @@ const SocialLink = styled.a`
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
     color: white;
     transform: translateY(-3px);
   }
@@ -118,7 +118,7 @@ const SocialLink = styled.a`
 const ValuesSection = styled.div`
   padding: 4rem 2rem;
   background: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 24px;
 `;
 
 const ValuesGrid = styled.div`
@@ -142,11 +142,11 @@ const ValueTitle = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #0f172a;
 `;
 
 const ValueText = styled.p`
-  color: #666;
+  color: #475569;
   line-height: 1.6;
 `;
 
@@ -156,42 +156,42 @@ const team = [
     role: 'CEO & Founder',
     bio: '15+ years in marketing strategy. Passionate about helping brands tell their stories.',
     emoji: '👩‍💼',
-    color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    color: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'
   },
   {
     name: 'Michael Chen',
     role: 'Creative Director',
     bio: 'Award-winning designer with a eye for detail and love for minimalist aesthetics.',
     emoji: '👨‍🎨',
-    color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+    color: 'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)'
   },
   {
     name: 'Emma Williams',
     role: 'Head of Strategy',
     bio: 'Data-driven strategist who turns insights into actionable marketing plans.',
     emoji: '👩‍💻',
-    color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+    color: 'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)'
   },
   {
     name: 'David Martinez',
     role: 'Social Media Lead',
     bio: 'Social media guru who knows how to create viral content and engage communities.',
     emoji: '👨‍💼',
-    color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    color: 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)'
   },
   {
     name: 'Lisa Anderson',
     role: 'Content Manager',
     bio: 'Storyteller at heart. Creates compelling content that resonates with audiences.',
     emoji: '👩‍✍️',
-    color: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+    color: 'linear-gradient(135deg, #6366F1 0%, #0066FF 100%)'
   },
   {
     name: 'James Wilson',
     role: 'Video Producer',
     bio: 'Filmmaker who brings brand stories to life through powerful visual narratives.',
     emoji: '👨‍🎬',
-    color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+    color: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)'
   }
 ];
 
@@ -229,10 +229,10 @@ export default function TeamPage() {
             </Grid>
 
             <ValuesSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '1rem', color: '#0f172a' }}>
                 Our Core Values
               </h2>
-              <p style={{ textAlign: 'center', color: '#666', fontSize: '1.2rem' }}>
+              <p style={{ textAlign: 'center', color: '#475569', fontSize: '1.2rem' }}>
                 The principles that guide everything we do
               </p>
               <ValuesGrid>
