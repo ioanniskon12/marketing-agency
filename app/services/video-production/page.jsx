@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   text-align: center;
 `;
@@ -22,16 +22,19 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: white;
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.3rem;
-  opacity: 0.9;
+  font-size: 1.4rem;
+  opacity: 0.95;
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.8;
+  color: white;
 `;
 
 const ContentSection = styled.section`
@@ -47,55 +50,77 @@ const Grid = styled.div`
 `;
 
 const FeatureCard = styled.div`
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const FeatureIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const FeatureTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #333;
+  color: #1a1a2e;
 `;
 
 const FeatureText = styled.p`
-  color: #666;
-  line-height: 1.6;
+  color: #546e7a;
+  line-height: 1.8;
+  font-size: 1.05rem;
+`;
+
+const ImageSection = styled.div`
+  margin: 4rem 0;
+`;
+
+const ImagePlaceholder = styled.div`
+  height: 400px;
+  background: #e8eaf6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #546e7a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
 `;
 
 const CTASection = styled.div`
   text-align: center;
-  padding: 4rem 2rem;
-  background: #f8f9fa;
-  border-radius: 20px;
+  padding: 5rem 2rem;
+  background: #f5f5f5;
+  border-radius: 8px;
   margin-top: 4rem;
 `;
 
 const CTAButton = styled(Link)`
   display: inline-block;
-  padding: 1.2rem 3rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.4rem 3.5rem;
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
   color: white;
-  border-radius: 30px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 1.1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
   }
 `;
 
@@ -106,9 +131,9 @@ export default function VideoProductionPage() {
       <PageWrapper>
         <HeroSection>
           <Container>
-            <Title>🎬 Video Production</Title>
+            <Title>Video Production</Title>
             <Subtitle>
-              Professional video content that brings your brand to life and 
+              Professional video content that brings your brand to life and
               captivates your audience
             </Subtitle>
           </Container>
@@ -116,16 +141,16 @@ export default function VideoProductionPage() {
 
         <ContentSection>
           <Container>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#1a1a2e' }}>
               Video Services
             </h2>
-            
+
             <Grid>
               <FeatureCard>
                 <FeatureIcon>🎥</FeatureIcon>
                 <FeatureTitle>Corporate Videos</FeatureTitle>
                 <FeatureText>
-                  Professional company videos that showcase your brand, culture, 
+                  Professional company videos that showcase your brand, culture,
                   and values to clients and stakeholders.
                 </FeatureText>
               </FeatureCard>
@@ -134,7 +159,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>📺</FeatureIcon>
                 <FeatureTitle>Commercial Production</FeatureTitle>
                 <FeatureText>
-                  High-quality commercials for TV, social media, and digital 
+                  High-quality commercials for TV, social media, and digital
                   platforms that drive sales and brand awareness.
                 </FeatureText>
               </FeatureCard>
@@ -143,7 +168,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>📱</FeatureIcon>
                 <FeatureTitle>Social Media Videos</FeatureTitle>
                 <FeatureText>
-                  Short-form video content optimized for Instagram, TikTok, 
+                  Short-form video content optimized for Instagram, TikTok,
                   Facebook, and other social platforms.
                 </FeatureText>
               </FeatureCard>
@@ -152,7 +177,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>🎓</FeatureIcon>
                 <FeatureTitle>Explainer Videos</FeatureTitle>
                 <FeatureText>
-                  Animated or live-action videos that simplify complex concepts 
+                  Animated or live-action videos that simplify complex concepts
                   and educate your audience.
                 </FeatureText>
               </FeatureCard>
@@ -161,7 +186,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>🎬</FeatureIcon>
                 <FeatureTitle>Product Videos</FeatureTitle>
                 <FeatureText>
-                  Showcase your products in action with compelling demos and 
+                  Showcase your products in action with compelling demos and
                   testimonials that drive conversions.
                 </FeatureText>
               </FeatureCard>
@@ -170,7 +195,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>🎤</FeatureIcon>
                 <FeatureTitle>Event Coverage</FeatureTitle>
                 <FeatureText>
-                  Professional filming and editing of conferences, launches, 
+                  Professional filming and editing of conferences, launches,
                   and corporate events.
                 </FeatureText>
               </FeatureCard>
@@ -179,7 +204,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>🎨</FeatureIcon>
                 <FeatureTitle>Motion Graphics</FeatureTitle>
                 <FeatureText>
-                  Dynamic animated graphics and visual effects that enhance 
+                  Dynamic animated graphics and visual effects that enhance
                   your video content.
                 </FeatureText>
               </FeatureCard>
@@ -188,7 +213,7 @@ export default function VideoProductionPage() {
                 <FeatureIcon>📹</FeatureIcon>
                 <FeatureTitle>Testimonial Videos</FeatureTitle>
                 <FeatureText>
-                  Authentic customer testimonials that build trust and credibility 
+                  Authentic customer testimonials that build trust and credibility
                   for your brand.
                 </FeatureText>
               </FeatureCard>
@@ -197,15 +222,21 @@ export default function VideoProductionPage() {
                 <FeatureIcon>✂️</FeatureIcon>
                 <FeatureTitle>Video Editing</FeatureTitle>
                 <FeatureText>
-                  Professional editing services to transform raw footage into 
+                  Professional editing services to transform raw footage into
                   polished, engaging content.
                 </FeatureText>
               </FeatureCard>
             </Grid>
 
+            <ImageSection>
+              <ImagePlaceholder>
+                [Video Production Service Image]
+              </ImagePlaceholder>
+            </ImageSection>
+
             <CTASection>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to Bring Your Vision to Life?</h2>
-              <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#1a1a2e', fontWeight: '800' }}>Ready to Bring Your Vision to Life?</h2>
+              <p style={{ fontSize: '1.3rem', color: '#546e7a', marginBottom: '2.5rem', lineHeight: '1.8' }}>
                 Let's create video content that captivates and converts
               </p>
               <CTAButton href="/contact">Start Your Video Project</CTAButton>

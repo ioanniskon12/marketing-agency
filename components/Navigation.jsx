@@ -10,11 +10,11 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 `;
 
 const NavContainer = styled.div`
@@ -29,16 +29,13 @@ const NavContainer = styled.div`
 const Logo = styled(Link)`
   font-size: 1.5rem;
   font-weight: 900;
-  color: #0f172a;
+  color: #1a1a2e;
   text-decoration: none;
   letter-spacing: -0.03em;
   transition: all 0.2s ease;
 
   span {
-    background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #2196F3;
   }
 
   &:hover {
@@ -46,7 +43,7 @@ const Logo = styled(Link)`
   }
 `;
 
-const NavLinks = styled.div<{ $isOpen: boolean }>`
+const NavLinks = styled.div`
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -62,7 +59,7 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     padding: 6rem 2rem 2rem;
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.3s ease;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     align-items: stretch;
     gap: 0.5rem;
@@ -70,45 +67,23 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
 `;
 
 const NavLink = styled(Link)`
-  color: #475569;
+  color: #1a1a2e;
   font-weight: 600;
   padding: 0.7rem 1.3rem;
-  border-radius: 12px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
   text-decoration: none;
   font-size: 0.95rem;
   position: relative;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0.5rem;
-    left: 1.3rem;
-    right: 1.3rem;
-    height: 2px;
-    background: linear-gradient(90deg, #0066FF, #6366F1);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease;
-    border-radius: 2px;
-  }
-
   &:hover {
-    color: #0066FF;
-    background: rgba(0, 102, 255, 0.06);
-
-    &::after {
-      transform: scaleX(1);
-    }
+    color: #2196F3;
+    background: rgba(33, 150, 243, 0.08);
   }
 
   @media (max-width: 968px) {
     padding: 1rem 1.5rem;
     font-size: 1.05rem;
-
-    &::after {
-      display: none;
-    }
   }
 `;
 
@@ -117,7 +92,7 @@ const DropdownWrapper = styled.div`
 `;
 
 const DropdownTrigger = styled.button`
-  color: #475569;
+  color: #1a1a2e;
   font-weight: 600;
   background: none;
   border: none;
@@ -125,8 +100,8 @@ const DropdownTrigger = styled.button`
   font-size: 0.95rem;
   font-family: inherit;
   padding: 0.7rem 1.3rem;
-  border-radius: 12px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -138,27 +113,9 @@ const DropdownTrigger = styled.button`
     transition: transform 0.2s ease;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0.5rem;
-    left: 1.3rem;
-    right: 1.3rem;
-    height: 2px;
-    background: linear-gradient(90deg, #0066FF, #6366F1);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease;
-    border-radius: 2px;
-  }
-
   &:hover {
-    color: #0066FF;
-    background: rgba(0, 102, 255, 0.06);
-
-    &::before {
-      transform: scaleX(1);
-    }
+    color: #2196F3;
+    background: rgba(33, 150, 243, 0.08);
 
     &::after {
       transform: rotate(180deg);
@@ -170,28 +127,23 @@ const DropdownTrigger = styled.button`
     justify-content: space-between;
     padding: 1rem 1.5rem;
     font-size: 1.05rem;
-
-    &::before {
-      display: none;
-    }
   }
 `;
 
-const DropdownMenu = styled.div<{ $isOpen: boolean }>`
+const DropdownMenu = styled.div`
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   padding: 0.5rem;
   min-width: 240px;
   opacity: ${props => props.$isOpen ? '1' : '0'};
   visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
   transform: translateY(${props => props.$isOpen ? '0' : '-10px'});
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 
   @media (max-width: 968px) {
     position: static;
@@ -204,58 +156,40 @@ const DropdownMenu = styled.div<{ $isOpen: boolean }>`
     padding-left: 1rem;
     margin-top: 0.5rem;
     background: rgba(248, 250, 252, 0.8);
-    backdrop-filter: none;
   }
 `;
 
 const DropdownLink = styled(Link)`
   display: block;
-  color: #475569;
+  color: #546e7a;
   padding: 0.8rem 1.2rem;
-  border-radius: 10px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
 
   &:hover {
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
-    color: #0066FF;
+    background: rgba(33, 150, 243, 0.08);
+    color: #2196F3;
     transform: translateX(4px);
   }
 `;
 
 const CTAButton = styled(Link)`
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
   color: white;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   text-decoration: none;
   font-size: 0.95rem;
-  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-  }
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0, 102, 255, 0.4);
-
-    &::before {
-      left: 100%;
-    }
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
   }
 
   &:active {
@@ -275,7 +209,7 @@ const MenuButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #0f172a;
+  color: #1a1a2e;
   z-index: 1001;
   padding: 0.5rem;
   transition: transform 0.2s ease;
@@ -293,7 +227,7 @@ const MenuButton = styled.button`
   }
 `;
 
-const Overlay = styled.div<{ $isOpen: boolean }>`
+const Overlay = styled.div`
   display: none;
 
   @media (max-width: 968px) {

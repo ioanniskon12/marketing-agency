@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   text-align: center;
 `;
@@ -25,6 +25,7 @@ const Title = styled.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: white;
 `;
 
 const Subtitle = styled.p`
@@ -32,6 +33,7 @@ const Subtitle = styled.p`
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto;
+  color: white;
 `;
 
 const TestimonialsSection = styled.section`
@@ -47,15 +49,15 @@ const Grid = styled.div`
 `;
 
 const TestimonialCard = styled.div`
-  background: #f8f9fa;
+  background: #f5f5f5;
   padding: 2.5rem;
-  border-radius: 20px;
+  border-radius: 8px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 
   &::before {
@@ -64,7 +66,7 @@ const TestimonialCard = styled.div`
     top: -20px;
     left: 20px;
     font-size: 6rem;
-    color: #667eea;
+    color: #2196F3;
     opacity: 0.2;
     font-family: Georgia, serif;
   }
@@ -77,7 +79,7 @@ const Rating = styled.div`
 `;
 
 const TestimonialText = styled.p`
-  color: #333;
+  color: #1a1a2e;
   line-height: 1.8;
   font-size: 1.05rem;
   margin-bottom: 2rem;
@@ -92,35 +94,38 @@ const ClientInfo = styled.div`
   border-top: 2px solid #e0e0e0;
 `;
 
-const ClientAvatar = styled.div<{ $color: string }>`
+const ClientAvatar = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: ${props => props.$color};
+  background: #e8eaf6;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
+  font-weight: 600;
+  color: #546e7a;
+  border: 1px solid #e0e0e0;
 `;
 
 const ClientDetails = styled.div``;
 
 const ClientName = styled.div`
   font-weight: 700;
-  color: #333;
+  color: #1a1a2e;
   font-size: 1.1rem;
 `;
 
 const ClientRole = styled.div`
-  color: #666;
+  color: #546e7a;
   font-size: 0.95rem;
 `;
 
 const StatsSection = styled.div`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 5rem 2rem;
-  border-radius: 20px;
+  border-radius: 8px;
   color: white;
   text-align: center;
   margin: 4rem 0;
@@ -139,18 +144,20 @@ const StatNumber = styled.div`
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
+  color: white;
 `;
 
 const StatLabel = styled.div`
   font-size: 1.1rem;
   opacity: 0.9;
+  color: white;
 `;
 
 const CTASection = styled.div`
   text-align: center;
   padding: 4rem 2rem;
-  background: #f8f9fa;
-  border-radius: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
 `;
 
 const testimonials = [
@@ -158,48 +165,36 @@ const testimonials = [
     text: "Working with CreativeHub transformed our brand. Their strategic approach and creative execution exceeded all our expectations. Our engagement is up 400%!",
     name: "Jennifer Smith",
     role: "CEO, TechStart Inc.",
-    avatar: "👩‍💼",
-    color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     rating: 5
   },
   {
     text: "The team's expertise in social media marketing helped us grow from 5K to 200K followers in just 8 months. Their content strategy is brilliant!",
     name: "Michael Brown",
     role: "Marketing Director, FitLife",
-    avatar: "👨‍💼",
-    color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     rating: 5
   },
   {
     text: "Our ROI has tripled since partnering with CreativeHub. They don't just create campaigns, they create results. Highly recommend!",
     name: "Sarah Davis",
     role: "Founder, EcoStore",
-    avatar: "👩‍💻",
-    color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     rating: 5
   },
   {
     text: "The video production quality is outstanding! The team captured our brand essence perfectly and the campaign videos drove incredible engagement.",
     name: "David Wilson",
     role: "CMO, Urban Café",
-    avatar: "👨‍🎨",
-    color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     rating: 5
   },
   {
     text: "Professional, creative, and results-driven. CreativeHub helped us completely rebrand and reposition in the market. Game changer!",
     name: "Emily Chen",
     role: "CEO, InnovateTech",
-    avatar: "👩‍🔬",
-    color: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
     rating: 5
   },
   {
     text: "Their content creation is top-notch. Every piece aligns perfectly with our brand voice and resonates with our audience. Worth every penny!",
     name: "Robert Martinez",
     role: "Director, ContentPro",
-    avatar: "👨‍💻",
-    color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
     rating: 5
   }
 ];
@@ -213,7 +208,7 @@ export default function TestimonialsPage() {
           <Container>
             <Title>Client Success Stories</Title>
             <Subtitle>
-              Don't just take our word for it. See what our clients have to say 
+              Don't just take our word for it. See what our clients have to say
               about their experience working with us.
             </Subtitle>
           </Container>
@@ -227,8 +222,8 @@ export default function TestimonialsPage() {
                   <Rating>{'⭐'.repeat(testimonial.rating)}</Rating>
                   <TestimonialText>"{testimonial.text}"</TestimonialText>
                   <ClientInfo>
-                    <ClientAvatar $color={testimonial.color}>
-                      {testimonial.avatar}
+                    <ClientAvatar>
+                      [Photo]
                     </ClientAvatar>
                     <ClientDetails>
                       <ClientName>{testimonial.name}</ClientName>
@@ -240,10 +235,10 @@ export default function TestimonialsPage() {
             </Grid>
 
             <StatsSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem', color: 'white' }}>
                 Results That Speak for Themselves
               </h2>
-              <p style={{ fontSize: '1.2rem', opacity: '0.9' }}>
+              <p style={{ fontSize: '1.2rem', opacity: '0.9', color: 'white' }}>
                 Our client success is our success
               </p>
               <StatsGrid>
@@ -267,20 +262,21 @@ export default function TestimonialsPage() {
             </StatsSection>
 
             <CTASection>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to Join Our Success Stories?</h2>
-              <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#1a1a2e' }}>Ready to Join Our Success Stories?</h2>
+              <p style={{ fontSize: '1.2rem', color: '#546e7a', marginBottom: '2rem' }}>
                 Let's create your marketing success story together
               </p>
               <Link href="/contact" style={{
                 display: 'inline-block',
                 padding: '1.2rem 3rem',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #2196F3 0%, #1976d2 100%)',
                 color: 'white',
-                borderRadius: '30px',
+                borderRadius: '8px',
                 fontWeight: '700',
                 fontSize: '1.1rem',
                 textDecoration: 'none',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
               }}>
                 Get Started Today
               </Link>

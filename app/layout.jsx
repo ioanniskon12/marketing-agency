@@ -1,23 +1,17 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '@/lib/registry';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Creative Marketing Agency | Digital Solutions',
   description: 'Transform your brand with our creative marketing solutions. We specialize in digital marketing, branding, and creative campaigns.',
 };
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

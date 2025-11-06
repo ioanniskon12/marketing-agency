@@ -5,19 +5,9 @@ import { useState } from 'react';
 
 const ContactSection = styled.section`
   padding: 8rem 2rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
+  background: #f8f9fa;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
 `;
 
 const Container = styled.div`
@@ -27,31 +17,34 @@ const Container = styled.div`
   z-index: 1;
 `;
 
+const HeaderSection = styled.div`
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 3rem 2rem;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
+
 const SectionTitle = styled.h2`
   font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 900;
-  text-align: center;
   margin-bottom: 1rem;
   color: white;
   letter-spacing: -0.03em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 `;
 
 const SectionSubtitle = styled.p`
-  text-align: center;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.25rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   font-weight: 400;
 `;
 
 const ContactForm = styled.form`
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
+  background: white;
   padding: 3rem;
-  border-radius: 32px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const FormGroup = styled.div`
@@ -61,7 +54,7 @@ const FormGroup = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 0.6rem;
-  color: #0f172a;
+  color: #1a1a2e;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: -0.01em;
@@ -70,79 +63,62 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: 1.1rem 1.3rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   background: white;
 
   &:focus {
     outline: none;
-    border-color: #0066FF;
-    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
   }
 
   &::placeholder {
-    color: #94a3b8;
+    color: #9e9e9e;
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   padding: 1.1rem 1.3rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
   font-family: inherit;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   background: white;
 
   &:focus {
     outline: none;
-    border-color: #0066FF;
-    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
   }
 
   &::placeholder {
-    color: #94a3b8;
+    color: #9e9e9e;
   }
 `;
 
 const SubmitButton = styled.button`
   width: 100%;
   padding: 1.3rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-  }
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
-
-    &::before {
-      left: 100%;
-    }
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
   }
 
   &:active {
@@ -160,11 +136,11 @@ const SuccessMessage = styled.div`
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   color: white;
   padding: 1.2rem;
-  border-radius: 12px;
+  border-radius: 8px;
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 600;
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 `;
 
 export default function Contact() {
@@ -177,14 +153,14 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -201,10 +177,12 @@ export default function Contact() {
   return (
     <ContactSection id="contact">
       <Container>
-        <SectionTitle>Let's Work Together</SectionTitle>
-        <SectionSubtitle>
-          Ready to transform your brand? Get in touch and let's create something amazing.
-        </SectionSubtitle>
+        <HeaderSection>
+          <SectionTitle>Let's Work Together</SectionTitle>
+          <SectionSubtitle>
+            Ready to transform your brand? Get in touch and let's create something amazing.
+          </SectionSubtitle>
+        </HeaderSection>
         <ContactForm onSubmit={handleSubmit}>
           {showSuccess && (
             <SuccessMessage>

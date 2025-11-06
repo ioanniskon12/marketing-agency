@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   text-align: center;
 `;
@@ -25,6 +25,7 @@ const Title = styled.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: white;
 `;
 
 const Subtitle = styled.p`
@@ -32,6 +33,7 @@ const Subtitle = styled.p`
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto;
+  color: white;
 `;
 
 const PricingSection = styled.section`
@@ -46,19 +48,19 @@ const PricingGrid = styled.div`
   margin-top: 3rem;
 `;
 
-const PricingCard = styled.div<{ $featured?: boolean }>`
-  background: ${props => props.$featured ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'white'};
-  color: ${props => props.$featured ? 'white' : '#333'};
+const PricingCard = styled.div`
+  background: ${props => props.$featured ? 'linear-gradient(135deg, #2196F3 0%, #1976d2 100%)' : 'white'};
+  color: ${props => props.$featured ? 'white' : '#1a1a2e'};
   padding: 3rem 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: ${props => props.$featured ? 'none' : '2px solid #e0e0e0'};
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -67,12 +69,13 @@ const Badge = styled.div`
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ffd700;
-  color: #333;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
   padding: 0.5rem 1.5rem;
-  border-radius: 20px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const PlanName = styled.h3`
@@ -113,8 +116,8 @@ const Feature = styled.li`
     content: '✓';
     width: 24px;
     height: 24px;
-    background: ${props => props.color === 'white' ? 'rgba(255,255,255,0.2)' : '#667eea'};
-    color: ${props => props.color === 'white' ? 'white' : 'white'};
+    background: ${props => props.color === 'white' ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #2196F3 0%, #1976d2 100%)'};
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -123,14 +126,14 @@ const Feature = styled.li`
   }
 `;
 
-const CTAButton = styled(Link)<{ $variant?: string }>`
+const CTAButton = styled(Link)`
   display: block;
   width: 100%;
   padding: 1.2rem;
-  background: ${props => props.$variant === 'white' ? 'white' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
-  color: ${props => props.$variant === 'white' ? '#667eea' : 'white'};
+  background: ${props => props.$variant === 'white' ? 'white' : 'linear-gradient(135deg, #2196F3 0%, #1976d2 100%)'};
+  color: ${props => props.$variant === 'white' ? '#2196F3' : 'white'};
   text-align: center;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -138,15 +141,15 @@ const CTAButton = styled(Link)<{ $variant?: string }>`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
   }
 `;
 
 const FAQSection = styled.div`
   margin-top: 6rem;
   padding: 4rem 2rem;
-  background: #f8f9fa;
-  border-radius: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
 `;
 
 const FAQItem = styled.div`
@@ -157,11 +160,11 @@ const Question = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #1a1a2e;
 `;
 
 const Answer = styled.p`
-  color: #666;
+  color: #546e7a;
   line-height: 1.6;
 `;
 
@@ -174,7 +177,7 @@ export default function PricingPage() {
           <Container>
             <Title>Simple, Transparent Pricing</Title>
             <Subtitle>
-              Choose the perfect plan for your business needs. All plans include 
+              Choose the perfect plan for your business needs. All plans include
               our core features and dedicated support.
             </Subtitle>
           </Container>
@@ -233,42 +236,42 @@ export default function PricingPage() {
             </PricingGrid>
 
             <FAQSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '3rem', color: '#1a1a2e' }}>
                 Frequently Asked Questions
               </h2>
               <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <FAQItem>
                   <Question>Can I change my plan later?</Question>
                   <Answer>
-                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect 
+                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect
                     at the start of your next billing cycle.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>What's included in the setup process?</Question>
                   <Answer>
-                    We'll conduct a discovery session, audit your current marketing, develop a 
+                    We'll conduct a discovery session, audit your current marketing, develop a
                     strategy, and create content calendars. Setup typically takes 2-3 weeks.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>Do you offer custom packages?</Question>
                   <Answer>
-                    Absolutely! If our standard plans don't fit your needs, we can create a 
+                    Absolutely! If our standard plans don't fit your needs, we can create a
                     custom package tailored to your specific requirements.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>What payment methods do you accept?</Question>
                   <Answer>
-                    We accept all major credit cards, ACH transfers, and wire transfers for 
+                    We accept all major credit cards, ACH transfers, and wire transfers for
                     annual contracts.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>Is there a contract commitment?</Question>
                   <Answer>
-                    Our standard plans are month-to-month with no long-term commitment. However, 
+                    Our standard plans are month-to-month with no long-term commitment. However,
                     we offer discounts for 6-month and annual contracts.
                   </Answer>
                 </FAQItem>
