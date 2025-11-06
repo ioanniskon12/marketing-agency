@@ -46,7 +46,7 @@ const Logo = styled(Link)`
   }
 `;
 
-const NavLinks = styled.div<{ $isOpen: boolean }>`
+const NavLinks = styled.div`
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -177,7 +177,7 @@ const DropdownTrigger = styled.button`
   }
 `;
 
-const DropdownMenu = styled.div<{ $isOpen: boolean }>`
+const DropdownMenu = styled.div`
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 0;
@@ -293,7 +293,7 @@ const MenuButton = styled.button`
   }
 `;
 
-const Overlay = styled.div<{ $isOpen: boolean }>`
+const Overlay = styled.div`
   display: none;
 
   @media (max-width: 968px) {

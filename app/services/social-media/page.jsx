@@ -217,7 +217,7 @@ export default function SocialMediaPage() {
           <Container>
             <Title>📱 Social Media Marketing</Title>
             <Subtitle>
-              Engage your audience across all platforms with creative content and 
+              Engage your audience across all platforms with creative content and
               data-driven social media strategies
             </Subtitle>
           </Container>
@@ -228,13 +228,13 @@ export default function SocialMediaPage() {
             <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
               Our Services
             </h2>
-            
+
             <Grid>
               <FeatureCard>
                 <FeatureIcon>📊</FeatureIcon>
                 <FeatureTitle>Strategy Development</FeatureTitle>
                 <FeatureText>
-                  Custom social media strategies aligned with your business goals 
+                  Custom social media strategies aligned with your business goals
                   and target audience behavior.
                 </FeatureText>
               </FeatureCard>
@@ -243,7 +243,7 @@ export default function SocialMediaPage() {
                 <FeatureIcon>✍️</FeatureIcon>
                 <FeatureTitle>Content Creation</FeatureTitle>
                 <FeatureText>
-                  Engaging posts, graphics, videos, and stories that capture attention 
+                  Engaging posts, graphics, videos, and stories that capture attention
                   and drive engagement.
                 </FeatureText>
               </FeatureCard>
@@ -252,7 +252,7 @@ export default function SocialMediaPage() {
                 <FeatureIcon>📅</FeatureIcon>
                 <FeatureTitle>Content Calendar</FeatureTitle>
                 <FeatureText>
-                  Strategic planning and scheduling of content to maintain consistent 
+                  Strategic planning and scheduling of content to maintain consistent
                   presence across platforms.
                 </FeatureText>
               </FeatureCard>
@@ -261,7 +261,7 @@ export default function SocialMediaPage() {
                 <FeatureIcon>💬</FeatureIcon>
                 <FeatureTitle>Community Management</FeatureTitle>
                 <FeatureText>
-                  Active engagement with your audience, responding to comments and 
+                  Active engagement with your audience, responding to comments and
                   building relationships.
                 </FeatureText>
               </FeatureCard>
@@ -270,7 +270,7 @@ export default function SocialMediaPage() {
                 <FeatureIcon>📈</FeatureIcon>
                 <FeatureTitle>Analytics & Reporting</FeatureTitle>
                 <FeatureText>
-                  Detailed performance tracking and insights to optimize your 
+                  Detailed performance tracking and insights to optimize your
                   social media presence.
                 </FeatureText>
               </FeatureCard>
@@ -279,7 +279,7 @@ export default function SocialMediaPage() {
                 <FeatureIcon>💰</FeatureIcon>
                 <FeatureTitle>Paid Advertising</FeatureTitle>
                 <FeatureText>
-                  Targeted ad campaigns to reach new audiences and drive conversions 
+                  Targeted ad campaigns to reach new audiences and drive conversions
                   across social platforms.
                 </FeatureText>
               </FeatureCard>

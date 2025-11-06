@@ -14,7 +14,7 @@ const HeroSection = styled.section`
   padding: 2rem;
 `;
 
-const GeometricShape = styled.div<{ $top?: string; $left?: string; $right?: string; $bottom?: string; $size?: string; $gradient?: string; $rotation?: string }>`
+const GeometricShape = styled.div`
   position: absolute;
   width: ${props => props.$size || '300px'};
   height: ${props => props.$size || '300px'};

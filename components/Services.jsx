@@ -56,7 +56,7 @@ const AccordionContainer = styled.div`
   margin: 0 auto;
 `;
 
-const AccordionItem = styled.div<{ $isOpen: boolean; $gradient: string }>`
+const AccordionItem = styled.div`
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   margin-bottom: 1.5rem;
@@ -71,7 +71,7 @@ const AccordionItem = styled.div<{ $isOpen: boolean; $gradient: string }>`
   `}
 `;
 
-const AccordionHeader = styled.button<{ $isOpen: boolean }>`
+const AccordionHeader = styled.button`
   width: 100%;
   padding: 2rem 2.5rem;
   background: none;
@@ -91,7 +91,7 @@ const HeaderLeft = styled.div`
   flex: 1;
 `;
 
-const IconWrapper = styled.div<{ $isOpen: boolean }>`
+const IconWrapper = styled.div`
   width: 70px;
   height: 70px;
   background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)'};
@@ -108,7 +108,7 @@ const IconWrapper = styled.div<{ $isOpen: boolean }>`
 
 const HeaderContent = styled.div``;
 
-const ServiceTitle = styled.h3<{ $isOpen: boolean }>`
+const ServiceTitle = styled.h3`
   font-size: 1.6rem;
   font-weight: 700;
   color: ${props => props.$isOpen ? '#ffffff' : '#0f172a'};
@@ -117,13 +117,13 @@ const ServiceTitle = styled.h3<{ $isOpen: boolean }>`
   transition: color 0.3s ease;
 `;
 
-const ServiceShortDesc = styled.p<{ $isOpen: boolean }>`
+const ServiceShortDesc = styled.p`
   color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.9)' : '#64748b'};
   font-size: 0.95rem;
   transition: color 0.3s ease;
 `;
 
-const ExpandIcon = styled.div<{ $isOpen: boolean }>`
+const ExpandIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -138,7 +138,7 @@ const ExpandIcon = styled.div<{ $isOpen: boolean }>`
   flex-shrink: 0;
 `;
 
-const AccordionContent = styled.div<{ $isOpen: boolean }>`
+const AccordionContent = styled.div`
   max-height: ${props => props.$isOpen ? '1000px' : '0'};
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -148,7 +148,7 @@ const ContentInner = styled.div`
   padding: 0 2.5rem 2rem 2.5rem;
 `;
 
-const ServiceDescription = styled.p<{ $isOpen: boolean }>`
+const ServiceDescription = styled.p`
   color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : '#475569'};
   line-height: 1.8;
   font-size: 1.05rem;
@@ -165,7 +165,7 @@ const FeatureList = styled.ul`
   gap: 1rem;
 `;
 
-const FeatureItem = styled.li<{ $isOpen: boolean }>`
+const FeatureItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -190,7 +190,7 @@ const FeatureItem = styled.li<{ $isOpen: boolean }>`
   }
 `;
 
-const LearnMoreButton = styled(Link)<{ $isOpen: boolean }>`
+const LearnMoreButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -280,9 +280,9 @@ const services = [
 ];
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleAccordion = (index: number) => {
+  const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 

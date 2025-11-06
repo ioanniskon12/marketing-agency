@@ -137,7 +137,7 @@ export default function CreativeDesignPage() {
           <Container>
             <Title>🎨 Creative Design</Title>
             <Subtitle>
-              Eye-catching designs that capture attention and communicate your 
+              Eye-catching designs that capture attention and communicate your
               message effectively across all mediums
             </Subtitle>
           </Container>
@@ -148,13 +148,13 @@ export default function CreativeDesignPage() {
             <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
               Design Services
             </h2>
-            
+
             <Grid>
               <FeatureCard>
                 <FeatureIcon>🎨</FeatureIcon>
                 <FeatureTitle>Logo Design</FeatureTitle>
                 <FeatureText>
-                  Custom logo designs that represent your brand identity and leave 
+                  Custom logo designs that represent your brand identity and leave
                   a lasting impression on your audience.
                 </FeatureText>
               </FeatureCard>
@@ -163,7 +163,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>📱</FeatureIcon>
                 <FeatureTitle>UI/UX Design</FeatureTitle>
                 <FeatureText>
-                  User-centered interface designs that provide seamless experiences 
+                  User-centered interface designs that provide seamless experiences
                   and drive user engagement.
                 </FeatureText>
               </FeatureCard>
@@ -172,7 +172,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>🌐</FeatureIcon>
                 <FeatureTitle>Website Design</FeatureTitle>
                 <FeatureText>
-                  Beautiful, responsive website designs that convert visitors into 
+                  Beautiful, responsive website designs that convert visitors into
                   customers and enhance your online presence.
                 </FeatureText>
               </FeatureCard>
@@ -181,7 +181,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>📄</FeatureIcon>
                 <FeatureTitle>Print Design</FeatureTitle>
                 <FeatureText>
-                  Professional print materials including brochures, business cards, 
+                  Professional print materials including brochures, business cards,
                   posters, and packaging design.
                 </FeatureText>
               </FeatureCard>
@@ -190,7 +190,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>📱</FeatureIcon>
                 <FeatureTitle>Social Media Graphics</FeatureTitle>
                 <FeatureText>
-                  Engaging visual content optimized for social media platforms to 
+                  Engaging visual content optimized for social media platforms to
                   boost your online engagement.
                 </FeatureText>
               </FeatureCard>
@@ -199,7 +199,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>🎬</FeatureIcon>
                 <FeatureTitle>Motion Graphics</FeatureTitle>
                 <FeatureText>
-                  Animated graphics and visual effects that bring your brand story 
+                  Animated graphics and visual effects that bring your brand story
                   to life in dynamic ways.
                 </FeatureText>
               </FeatureCard>
@@ -208,7 +208,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>📊</FeatureIcon>
                 <FeatureTitle>Infographic Design</FeatureTitle>
                 <FeatureText>
-                  Data visualization and infographics that make complex information 
+                  Data visualization and infographics that make complex information
                   easy to understand and share.
                 </FeatureText>
               </FeatureCard>
@@ -217,7 +217,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>📧</FeatureIcon>
                 <FeatureTitle>Email Templates</FeatureTitle>
                 <FeatureText>
-                  Custom email designs that increase open rates and drive conversions 
+                  Custom email designs that increase open rates and drive conversions
                   for your campaigns.
                 </FeatureText>
               </FeatureCard>
@@ -226,7 +226,7 @@ export default function CreativeDesignPage() {
                 <FeatureIcon>🎁</FeatureIcon>
                 <FeatureTitle>Packaging Design</FeatureTitle>
                 <FeatureText>
-                  Creative packaging solutions that make your products stand out on 
+                  Creative packaging solutions that make your products stand out on
                   shelves and delight customers.
                 </FeatureText>
               </FeatureCard>

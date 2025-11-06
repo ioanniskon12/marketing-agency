@@ -227,32 +227,32 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setShowSuccess(true);
-    setFormData({ 
-      name: '', 
-      email: '', 
-      phone: '', 
-      company: '', 
-      service: '', 
-      budget: '', 
-      message: '' 
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      service: '',
+      budget: '',
+      message: ''
     });
-    
+
     setTimeout(() => setShowSuccess(false), 5000);
   };
 
@@ -264,7 +264,7 @@ export default function ContactPage() {
           <Container>
             <Title>Get In Touch</Title>
             <Subtitle>
-              Ready to transform your brand? Let's start a conversation about your 
+              Ready to transform your brand? Let's start a conversation about your
               marketing goals and how we can help you achieve them.
             </Subtitle>
           </Container>
@@ -277,7 +277,7 @@ export default function ContactPage() {
                 <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem', color: '#0f172a' }}>
                   Contact Information
                 </h2>
-                
+
                 <InfoCard>
                   <InfoIcon>📧</InfoIcon>
                   <InfoTitle>Email Us</InfoTitle>
@@ -330,7 +330,7 @@ export default function ContactPage() {
                   <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '2rem', color: '#0f172a' }}>
                     Send Us a Message
                   </h2>
-                  
+
                   {showSuccess && (
                     <SuccessMessage>
                       Thank you! We've received your message and will get back to you within 24 hours.

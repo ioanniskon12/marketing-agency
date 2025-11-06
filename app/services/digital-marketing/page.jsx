@@ -128,17 +128,17 @@ const CTAButton = styled(Link)`
   }
 `;
 
-export default function VideoProductionPage() {
+export default function DigitalMarketingPage() {
   return (
     <>
       <Navigation />
       <PageWrapper>
         <HeroSection>
           <Container>
-            <Title>🎬 Video Production</Title>
+            <Title>📈 Digital Marketing</Title>
             <Subtitle>
-              Professional video content that brings your brand to life and 
-              captivates your audience
+              Comprehensive digital marketing campaigns that drive traffic, generate
+              leads, and boost conversions
             </Subtitle>
           </Container>
         </HeroSection>
@@ -146,98 +146,98 @@ export default function VideoProductionPage() {
         <ContentSection>
           <Container>
             <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
-              Video Services
+              Our Expertise
             </h2>
-            
+
             <Grid>
               <FeatureCard>
-                <FeatureIcon>🎥</FeatureIcon>
-                <FeatureTitle>Corporate Videos</FeatureTitle>
+                <FeatureIcon>🔍</FeatureIcon>
+                <FeatureTitle>SEO Optimization</FeatureTitle>
                 <FeatureText>
-                  Professional company videos that showcase your brand, culture, 
-                  and values to clients and stakeholders.
+                  Improve your search engine rankings and drive organic traffic
+                  with our proven SEO strategies.
                 </FeatureText>
               </FeatureCard>
 
               <FeatureCard>
-                <FeatureIcon>📺</FeatureIcon>
-                <FeatureTitle>Commercial Production</FeatureTitle>
+                <FeatureIcon>💰</FeatureIcon>
+                <FeatureTitle>PPC Advertising</FeatureTitle>
                 <FeatureText>
-                  High-quality commercials for TV, social media, and digital 
-                  platforms that drive sales and brand awareness.
+                  Strategic paid advertising campaigns on Google Ads, Facebook, and
+                  other platforms for maximum ROI.
+                </FeatureText>
+              </FeatureCard>
+
+              <FeatureCard>
+                <FeatureIcon>📧</FeatureIcon>
+                <FeatureTitle>Email Marketing</FeatureTitle>
+                <FeatureText>
+                  Targeted email campaigns that nurture leads and drive customer
+                  engagement and retention.
+                </FeatureText>
+              </FeatureCard>
+
+              <FeatureCard>
+                <FeatureIcon>🎯</FeatureIcon>
+                <FeatureTitle>Conversion Optimization</FeatureTitle>
+                <FeatureText>
+                  Data-driven optimization to increase conversion rates and maximize
+                  the value of your traffic.
+                </FeatureText>
+              </FeatureCard>
+
+              <FeatureCard>
+                <FeatureIcon>📊</FeatureIcon>
+                <FeatureTitle>Analytics & Reporting</FeatureTitle>
+                <FeatureText>
+                  Comprehensive tracking and insights to measure performance and
+                  optimize your marketing efforts.
+                </FeatureText>
+              </FeatureCard>
+
+              <FeatureCard>
+                <FeatureIcon>🤖</FeatureIcon>
+                <FeatureTitle>Marketing Automation</FeatureTitle>
+                <FeatureText>
+                  Streamline your marketing processes with automation tools that
+                  save time and improve results.
+                </FeatureText>
+              </FeatureCard>
+
+              <FeatureCard>
+                <FeatureIcon>🛒</FeatureIcon>
+                <FeatureTitle>E-commerce Marketing</FeatureTitle>
+                <FeatureText>
+                  Specialized strategies for online stores to increase sales and
+                  customer lifetime value.
                 </FeatureText>
               </FeatureCard>
 
               <FeatureCard>
                 <FeatureIcon>📱</FeatureIcon>
-                <FeatureTitle>Social Media Videos</FeatureTitle>
+                <FeatureTitle>Mobile Marketing</FeatureTitle>
                 <FeatureText>
-                  Short-form video content optimized for Instagram, TikTok, 
-                  Facebook, and other social platforms.
+                  Reach customers on their mobile devices with optimized campaigns
+                  and experiences.
                 </FeatureText>
               </FeatureCard>
 
               <FeatureCard>
-                <FeatureIcon>🎓</FeatureIcon>
-                <FeatureTitle>Explainer Videos</FeatureTitle>
+                <FeatureIcon>🎥</FeatureIcon>
+                <FeatureTitle>Video Marketing</FeatureTitle>
                 <FeatureText>
-                  Animated or live-action videos that simplify complex concepts 
-                  and educate your audience.
-                </FeatureText>
-              </FeatureCard>
-
-              <FeatureCard>
-                <FeatureIcon>🎬</FeatureIcon>
-                <FeatureTitle>Product Videos</FeatureTitle>
-                <FeatureText>
-                  Showcase your products in action with compelling demos and 
-                  testimonials that drive conversions.
-                </FeatureText>
-              </FeatureCard>
-
-              <FeatureCard>
-                <FeatureIcon>🎤</FeatureIcon>
-                <FeatureTitle>Event Coverage</FeatureTitle>
-                <FeatureText>
-                  Professional filming and editing of conferences, launches, 
-                  and corporate events.
-                </FeatureText>
-              </FeatureCard>
-
-              <FeatureCard>
-                <FeatureIcon>🎨</FeatureIcon>
-                <FeatureTitle>Motion Graphics</FeatureTitle>
-                <FeatureText>
-                  Dynamic animated graphics and visual effects that enhance 
-                  your video content.
-                </FeatureText>
-              </FeatureCard>
-
-              <FeatureCard>
-                <FeatureIcon>📹</FeatureIcon>
-                <FeatureTitle>Testimonial Videos</FeatureTitle>
-                <FeatureText>
-                  Authentic customer testimonials that build trust and credibility 
-                  for your brand.
-                </FeatureText>
-              </FeatureCard>
-
-              <FeatureCard>
-                <FeatureIcon>✂️</FeatureIcon>
-                <FeatureTitle>Video Editing</FeatureTitle>
-                <FeatureText>
-                  Professional editing services to transform raw footage into 
-                  polished, engaging content.
+                  Leverage the power of video content to engage audiences and drive
+                  conversions across platforms.
                 </FeatureText>
               </FeatureCard>
             </Grid>
 
             <CTASection>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#0f172a', fontWeight: '800', letterSpacing: '-0.02em' }}>Ready to Bring Your Vision to Life?</h2>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#0f172a', fontWeight: '800', letterSpacing: '-0.02em' }}>Ready to Scale Your Digital Presence?</h2>
               <p style={{ fontSize: '1.3rem', color: '#475569', marginBottom: '2.5rem', lineHeight: '1.8' }}>
-                Let's create video content that captivates and converts
+                Let's create a digital marketing strategy that delivers measurable results
               </p>
-              <CTAButton href="/contact">Start Your Video Project</CTAButton>
+              <CTAButton href="/contact">Get Your Free Consultation</CTAButton>
             </CTASection>
           </Container>
         </ContentSection>

@@ -46,7 +46,7 @@ const PricingGrid = styled.div`
   margin-top: 3rem;
 `;
 
-const PricingCard = styled.div<{ $featured?: boolean }>`
+const PricingCard = styled.div`
   background: ${props => props.$featured ? 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)' : 'white'};
   color: ${props => props.$featured ? 'white' : '#0f172a'};
   padding: 3rem 2.5rem;
@@ -124,7 +124,7 @@ const Feature = styled.li`
   }
 `;
 
-const CTAButton = styled(Link)<{ $variant?: string }>`
+const CTAButton = styled(Link)`
   display: block;
   width: 100%;
   padding: 1.2rem;
@@ -175,7 +175,7 @@ export default function PricingPage() {
           <Container>
             <Title>Simple, Transparent Pricing</Title>
             <Subtitle>
-              Choose the perfect plan for your business needs. All plans include 
+              Choose the perfect plan for your business needs. All plans include
               our core features and dedicated support.
             </Subtitle>
           </Container>
@@ -241,35 +241,35 @@ export default function PricingPage() {
                 <FAQItem>
                   <Question>Can I change my plan later?</Question>
                   <Answer>
-                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect 
+                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect
                     at the start of your next billing cycle.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>What's included in the setup process?</Question>
                   <Answer>
-                    We'll conduct a discovery session, audit your current marketing, develop a 
+                    We'll conduct a discovery session, audit your current marketing, develop a
                     strategy, and create content calendars. Setup typically takes 2-3 weeks.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>Do you offer custom packages?</Question>
                   <Answer>
-                    Absolutely! If our standard plans don't fit your needs, we can create a 
+                    Absolutely! If our standard plans don't fit your needs, we can create a
                     custom package tailored to your specific requirements.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>What payment methods do you accept?</Question>
                   <Answer>
-                    We accept all major credit cards, ACH transfers, and wire transfers for 
+                    We accept all major credit cards, ACH transfers, and wire transfers for
                     annual contracts.
                   </Answer>
                 </FAQItem>
                 <FAQItem>
                   <Question>Is there a contract commitment?</Question>
                   <Answer>
-                    Our standard plans are month-to-month with no long-term commitment. However, 
+                    Our standard plans are month-to-month with no long-term commitment. However,
                     we offer discounts for 6-month and annual contracts.
                   </Answer>
                 </FAQItem>

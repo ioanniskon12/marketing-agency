@@ -137,7 +137,7 @@ export default function ContentCreationPage() {
           <Container>
             <Title>✍️ Content Creation</Title>
             <Subtitle>
-              Compelling content that tells your story, educates your audience, 
+              Compelling content that tells your story, educates your audience,
               and drives meaningful engagement
             </Subtitle>
           </Container>
@@ -148,13 +148,13 @@ export default function ContentCreationPage() {
             <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
               Content Services
             </h2>
-            
+
             <Grid>
               <FeatureCard>
                 <FeatureIcon>📝</FeatureIcon>
                 <FeatureTitle>Blog Writing</FeatureTitle>
                 <FeatureText>
-                  SEO-optimized blog posts that educate your audience and drive 
+                  SEO-optimized blog posts that educate your audience and drive
                   organic traffic to your website.
                 </FeatureText>
               </FeatureCard>
@@ -163,7 +163,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📄</FeatureIcon>
                 <FeatureTitle>Copywriting</FeatureTitle>
                 <FeatureText>
-                  Persuasive copy for websites, landing pages, and marketing materials 
+                  Persuasive copy for websites, landing pages, and marketing materials
                   that convert readers into customers.
                 </FeatureText>
               </FeatureCard>
@@ -172,7 +172,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📱</FeatureIcon>
                 <FeatureTitle>Social Media Content</FeatureTitle>
                 <FeatureText>
-                  Engaging posts and captions designed to spark conversations and 
+                  Engaging posts and captions designed to spark conversations and
                   grow your social media following.
                 </FeatureText>
               </FeatureCard>
@@ -181,7 +181,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📧</FeatureIcon>
                 <FeatureTitle>Email Newsletters</FeatureTitle>
                 <FeatureText>
-                  Informative and engaging email content that keeps your audience 
+                  Informative and engaging email content that keeps your audience
                   connected with your brand.
                 </FeatureText>
               </FeatureCard>
@@ -190,7 +190,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📖</FeatureIcon>
                 <FeatureTitle>E-books & Whitepapers</FeatureTitle>
                 <FeatureText>
-                  In-depth content that establishes your authority and generates 
+                  In-depth content that establishes your authority and generates
                   qualified leads.
                 </FeatureText>
               </FeatureCard>
@@ -199,7 +199,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>🎯</FeatureIcon>
                 <FeatureTitle>Case Studies</FeatureTitle>
                 <FeatureText>
-                  Compelling success stories that showcase your expertise and 
+                  Compelling success stories that showcase your expertise and
                   build trust with potential clients.
                 </FeatureText>
               </FeatureCard>
@@ -208,7 +208,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>🎙️</FeatureIcon>
                 <FeatureTitle>Podcast Scripts</FeatureTitle>
                 <FeatureText>
-                  Engaging scripts and show notes for podcast episodes that keep 
+                  Engaging scripts and show notes for podcast episodes that keep
                   listeners coming back.
                 </FeatureText>
               </FeatureCard>
@@ -217,7 +217,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📹</FeatureIcon>
                 <FeatureTitle>Video Scripts</FeatureTitle>
                 <FeatureText>
-                  Compelling scripts for promotional videos, explainers, and 
+                  Compelling scripts for promotional videos, explainers, and
                   social media content.
                 </FeatureText>
               </FeatureCard>
@@ -226,7 +226,7 @@ export default function ContentCreationPage() {
                 <FeatureIcon>📊</FeatureIcon>
                 <FeatureTitle>Content Strategy</FeatureTitle>
                 <FeatureText>
-                  Comprehensive content strategies aligned with your business 
+                  Comprehensive content strategies aligned with your business
                   goals and audience needs.
                 </FeatureText>
               </FeatureCard>

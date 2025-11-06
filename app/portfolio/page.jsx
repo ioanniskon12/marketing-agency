@@ -47,7 +47,7 @@ const FilterButtons = styled.div`
   flex-wrap: wrap;
 `;
 
-const FilterButton = styled.button<{ $active?: boolean }>`
+const FilterButton = styled.button`
   padding: 0.8rem 1.5rem;
   background: ${props => props.$active ? 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)' : '#f8f9fa'};
   color: ${props => props.$active ? 'white' : '#475569'};
@@ -88,7 +88,7 @@ const ProjectCard = styled.div`
   }
 `;
 
-const ProjectImage = styled.div<{ $color: string }>`
+const ProjectImage = styled.div`
   height: 250px;
   background: ${props => props.$color};
   display: flex;
@@ -227,7 +227,7 @@ export default function PortfolioPage() {
           <Container>
             <Title>Our Portfolio</Title>
             <Subtitle>
-              Discover how we've helped brands achieve remarkable results through 
+              Discover how we've helped brands achieve remarkable results through
               creative marketing solutions
             </Subtitle>
           </Container>

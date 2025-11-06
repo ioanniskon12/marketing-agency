@@ -203,7 +203,7 @@ export default function BrandStrategyPage() {
           <Container>
             <Title>🎯 Brand Strategy</Title>
             <Subtitle>
-              Build a powerful brand identity that resonates with your audience and 
+              Build a powerful brand identity that resonates with your audience and
               sets you apart from the competition
             </Subtitle>
           </Container>
@@ -214,13 +214,13 @@ export default function BrandStrategyPage() {
             <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
               What We Offer
             </h2>
-            
+
             <Grid>
               <FeatureCard>
                 <FeatureIcon>🎨</FeatureIcon>
                 <FeatureTitle>Brand Identity</FeatureTitle>
                 <FeatureText>
-                  Create a cohesive visual identity including logo design, color palette, 
+                  Create a cohesive visual identity including logo design, color palette,
                   typography, and brand guidelines that reflect your values.
                 </FeatureText>
               </FeatureCard>
@@ -229,7 +229,7 @@ export default function BrandStrategyPage() {
                 <FeatureIcon>📊</FeatureIcon>
                 <FeatureTitle>Market Research</FeatureTitle>
                 <FeatureText>
-                  In-depth analysis of your target audience, competitors, and market 
+                  In-depth analysis of your target audience, competitors, and market
                   trends to position your brand effectively.
                 </FeatureText>
               </FeatureCard>
@@ -238,7 +238,7 @@ export default function BrandStrategyPage() {
                 <FeatureIcon>💡</FeatureIcon>
                 <FeatureTitle>Brand Positioning</FeatureTitle>
                 <FeatureText>
-                  Define your unique value proposition and position your brand to 
+                  Define your unique value proposition and position your brand to
                   stand out in a crowded marketplace.
                 </FeatureText>
               </FeatureCard>
@@ -247,7 +247,7 @@ export default function BrandStrategyPage() {
                 <FeatureIcon>📝</FeatureIcon>
                 <FeatureTitle>Messaging Strategy</FeatureTitle>
                 <FeatureText>
-                  Develop consistent brand messaging and tone of voice that connects 
+                  Develop consistent brand messaging and tone of voice that connects
                   with your audience across all touchpoints.
                 </FeatureText>
               </FeatureCard>
@@ -256,7 +256,7 @@ export default function BrandStrategyPage() {
                 <FeatureIcon>🎯</FeatureIcon>
                 <FeatureTitle>Brand Guidelines</FeatureTitle>
                 <FeatureText>
-                  Comprehensive documentation ensuring consistent brand application 
+                  Comprehensive documentation ensuring consistent brand application
                   across all channels and materials.
                 </FeatureText>
               </FeatureCard>
@@ -265,7 +265,7 @@ export default function BrandStrategyPage() {
                 <FeatureIcon>🚀</FeatureIcon>
                 <FeatureTitle>Launch Strategy</FeatureTitle>
                 <FeatureText>
-                  Strategic planning for brand launch or rebranding initiatives to 
+                  Strategic planning for brand launch or rebranding initiatives to
                   maximize impact and reach.
                 </FeatureText>
               </FeatureCard>

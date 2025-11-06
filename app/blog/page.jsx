@@ -59,7 +59,7 @@ const ArticleCard = styled.article`
   }
 `;
 
-const ArticleImage = styled.div<{ $color: string }>`
+const ArticleImage = styled.div`
   height: 220px;
   background: ${props => props.$color};
   display: flex;

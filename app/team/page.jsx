@@ -54,7 +54,7 @@ const TeamCard = styled.div`
   }
 `;
 
-const Avatar = styled.div<{ $color: string }>`
+const Avatar = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -204,7 +204,7 @@ export default function TeamPage() {
           <Container>
             <Title>Meet Our Team</Title>
             <Subtitle>
-              A talented group of creatives, strategists, and marketers dedicated 
+              A talented group of creatives, strategists, and marketers dedicated
               to your success
             </Subtitle>
           </Container>
@@ -240,7 +240,7 @@ export default function TeamPage() {
                   <ValueIcon>✨</ValueIcon>
                   <ValueTitle>Creativity</ValueTitle>
                   <ValueText>
-                    We push boundaries and think outside the box to deliver 
+                    We push boundaries and think outside the box to deliver
                     innovative solutions.
                   </ValueText>
                 </ValueCard>
@@ -248,7 +248,7 @@ export default function TeamPage() {
                   <ValueIcon>🤝</ValueIcon>
                   <ValueTitle>Collaboration</ValueTitle>
                   <ValueText>
-                    We work closely with our clients as partners, not just 
+                    We work closely with our clients as partners, not just
                     service providers.
                   </ValueText>
                 </ValueCard>
@@ -256,7 +256,7 @@ export default function TeamPage() {
                   <ValueIcon>🎯</ValueIcon>
                   <ValueTitle>Results-Driven</ValueTitle>
                   <ValueText>
-                    Every strategy and campaign is designed to deliver 
+                    Every strategy and campaign is designed to deliver
                     measurable results.
                   </ValueText>
                 </ValueCard>
@@ -264,7 +264,7 @@ export default function TeamPage() {
                   <ValueIcon>💡</ValueIcon>
                   <ValueTitle>Innovation</ValueTitle>
                   <ValueText>
-                    We stay ahead of trends and continuously evolve our 
+                    We stay ahead of trends and continuously evolve our
                     approach.
                   </ValueText>
                 </ValueCard>

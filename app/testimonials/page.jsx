@@ -92,7 +92,7 @@ const ClientInfo = styled.div`
   border-top: 2px solid #e0e0e0;
 `;
 
-const ClientAvatar = styled.div<{ $color: string }>`
+const ClientAvatar = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -213,7 +213,7 @@ export default function TestimonialsPage() {
           <Container>
             <Title>Client Success Stories</Title>
             <Subtitle>
-              Don't just take our word for it. See what our clients have to say 
+              Don't just take our word for it. See what our clients have to say
               about their experience working with us.
             </Subtitle>
           </Container>
