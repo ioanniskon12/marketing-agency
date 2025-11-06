@@ -2,11 +2,11 @@
 
 import styled from 'styled-components';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ServicesSection = styled.section`
   padding: 8rem 2rem;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: #ffffff;
   position: relative;
 `;
 
@@ -17,338 +17,303 @@ const Container = styled.div`
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 5rem;
-`;
-
-const Badge = styled.div`
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-  border: 2px solid rgba(0, 102, 255, 0.2);
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #0066FF;
-  margin-bottom: 1.5rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+  margin-bottom: 4rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  font-weight: 900;
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  color: #0f172a;
-  letter-spacing: -0.03em;
+  color: #1a1a2e;
+  letter-spacing: -0.02em;
 `;
 
 const SectionSubtitle = styled.p`
-  color: #475569;
+  color: #546e7a;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
-  font-weight: 400;
 `;
 
-const AccordionContainer = styled.div`
+const CarouselWrapper = styled.div`
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 60px;
+
+  @media (max-width: 768px) {
+    padding: 0 40px;
+  }
 `;
 
-const AccordionItem = styled.div`
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  margin-bottom: 1.5rem;
-  border-radius: 20px;
-  border: 2px solid ${props => props.$isOpen ? 'transparent' : 'rgba(226, 232, 240, 0.8)'};
+const CarouselContainer = styled.div`
+  position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: ${props => props.$isOpen ? '0 20px 50px rgba(0, 102, 255, 0.2)' : '0 4px 12px rgba(0, 0, 0, 0.05)'};
-
-  ${props => props.$isOpen && `
-    background: ${props.$gradient};
-  `}
+  border-radius: 8px;
 `;
 
-const AccordionHeader = styled.button`
+const CarouselTrack = styled.div`
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-${props => props.$currentSlide * 100}%);
+`;
+
+const Slide = styled.div`
+  min-width: 100%;
+  box-sizing: border-box;
+`;
+
+const ServiceCard = styled.div`
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const ImagePlaceholder = styled.div`
   width: 100%;
-  padding: 2rem 2.5rem;
-  background: none;
-  border: none;
+  height: 400px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: left;
+  justify-content: center;
+  color: #999;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 `;
 
-const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex: 1;
+const CardContent = styled.div`
+  padding: 3rem;
+  text-align: center;
 `;
 
 const IconWrapper = styled.div`
-  width: 70px;
-  height: 70px;
-  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)'};
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 2.2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: ${props => props.$isOpen ? '0 8px 24px rgba(255, 255, 255, 0.3)' : '0 4px 12px rgba(0, 0, 0, 0.08)'};
-  flex-shrink: 0;
 `;
-
-const HeaderContent = styled.div``;
 
 const ServiceTitle = styled.h3`
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: ${props => props.$isOpen ? '#ffffff' : '#0f172a'};
-  margin-bottom: 0.3rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
-  transition: color 0.3s ease;
-`;
-
-const ServiceShortDesc = styled.p`
-  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.9)' : '#64748b'};
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-`;
-
-const ExpandIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 102, 255, 0.1)'};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: ${props => props.$isOpen ? '#ffffff' : '#0066FF'};
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: rotate(${props => props.$isOpen ? '180deg' : '0deg'});
-  flex-shrink: 0;
-`;
-
-const AccordionContent = styled.div`
-  max-height: ${props => props.$isOpen ? '1000px' : '0'};
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-`;
-
-const ContentInner = styled.div`
-  padding: 0 2.5rem 2rem 2.5rem;
 `;
 
 const ServiceDescription = styled.p`
-  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : '#475569'};
+  color: #546e7a;
   line-height: 1.8;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease;
-`;
-
-const FeatureList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-`;
-
-const FeatureItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  color: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : '#475569'};
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-
-  &::before {
-    content: '✓';
-    width: 24px;
-    height: 24px;
-    background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 102, 255, 0.15)'};
-    color: ${props => props.$isOpen ? '#ffffff' : '#0066FF'};
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-  }
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 `;
 
 const LearnMoreButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.8rem;
-  background: ${props => props.$isOpen ? 'rgba(255, 255, 255, 0.95)' : 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'};
-  color: ${props => props.$isOpen ? '#0066FF' : '#ffffff'};
-  border-radius: 12px;
-  font-weight: 700;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  &::after {
-    content: '→';
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::after {
-    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
   }
 `;
 
-const gradients = [
-  'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)',
-  'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)',
-  'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)',
-  'linear-gradient(135deg, #6366F1 0%, #EC4899 100%)',
-  'linear-gradient(135deg, #F59E0B 0%, #0066FF 100%)',
-  'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
-];
+const NavButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  ${props => props.$direction === 'prev' ? 'left: 0;' : 'right: 0;'}
+  background: #ffffff;
+  border: 2px solid #1a1a2e;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: #1a1a2e;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+`;
+
+const DotsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+`;
+
+const Dot = styled.button`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #2196F3;
+  background: ${props => props.$active ? '#2196F3' : 'transparent'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    background: #2196F3;
+    transform: scale(1.2);
+  }
+`;
 
 const services = [
   {
     icon: '🎯',
     title: 'Brand Strategy',
-    shortDesc: 'Build a powerful brand identity',
     description: 'Develop a powerful brand identity that resonates with your target audience and sets you apart from the competition. We help you define your brand essence and communicate it effectively.',
-    features: ['Brand Identity Design', 'Market Research', 'Brand Positioning', 'Messaging Strategy'],
     link: '/services/brand-strategy'
   },
   {
     icon: '📱',
     title: 'Social Media Marketing',
-    shortDesc: 'Engage across all platforms',
     description: 'Engage your audience across all platforms with creative content and data-driven strategies. We create compelling social media campaigns that drive engagement and build community.',
-    features: ['Content Strategy', 'Community Management', 'Social Analytics', 'Influencer Partnerships'],
     link: '/services/social-media'
   },
   {
     icon: '🎨',
     title: 'Creative Design',
-    shortDesc: 'Eye-catching visual content',
     description: 'Eye-catching designs that capture attention and communicate your message effectively. Our creative team brings your brand vision to life with stunning visuals.',
-    features: ['Graphic Design', 'UI/UX Design', 'Print Materials', 'Brand Assets'],
     link: '/services/creative-design'
   },
   {
     icon: '📈',
     title: 'Digital Marketing',
-    shortDesc: 'Drive traffic and conversions',
     description: 'Comprehensive campaigns that drive traffic, generate leads, and boost conversions. We use data-driven strategies to maximize your ROI across all digital channels.',
-    features: ['SEO & SEM', 'PPC Campaigns', 'Email Marketing', 'Conversion Optimization'],
     link: '/services/digital-marketing'
   },
   {
     icon: '✍️',
     title: 'Content Creation',
-    shortDesc: 'Tell your story effectively',
     description: 'Compelling content that tells your story and drives meaningful engagement. From blog posts to case studies, we create content that resonates with your audience.',
-    features: ['Copywriting', 'Blog Content', 'Case Studies', 'Content Strategy'],
     link: '/services/content-creation'
   },
   {
     icon: '🎬',
     title: 'Video Production',
-    shortDesc: 'Bring your brand to life',
     description: 'Professional video content that brings your brand to life and captivates audiences. We handle everything from concept to final delivery.',
-    features: ['Video Production', 'Motion Graphics', 'Video Editing', 'Animation'],
     link: '/services/video-production'
   }
 ];
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % services.length);
   };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [currentSlide, isPaused]);
 
   return (
     <ServicesSection id="services">
       <Container>
         <Header>
-          <Badge>What We Do</Badge>
           <SectionTitle>Our Services</SectionTitle>
           <SectionSubtitle>
             Comprehensive marketing solutions tailored to your unique business needs
           </SectionSubtitle>
         </Header>
 
-        <AccordionContainer>
-          {services.map((service, index) => (
-            <AccordionItem
-              key={index}
-              $isOpen={openIndex === index}
-              $gradient={gradients[index]}
-            >
-              <AccordionHeader
-                $isOpen={openIndex === index}
-                onClick={() => toggleAccordion(index)}
-              >
-                <HeaderLeft>
-                  <IconWrapper $isOpen={openIndex === index}>
-                    {service.icon}
-                  </IconWrapper>
-                  <HeaderContent>
-                    <ServiceTitle $isOpen={openIndex === index}>
-                      {service.title}
-                    </ServiceTitle>
-                    <ServiceShortDesc $isOpen={openIndex === index}>
-                      {service.shortDesc}
-                    </ServiceShortDesc>
-                  </HeaderContent>
-                </HeaderLeft>
-                <ExpandIcon $isOpen={openIndex === index}>
-                  ⌄
-                </ExpandIcon>
-              </AccordionHeader>
+        <CarouselWrapper
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <NavButton $direction="prev" onClick={prevSlide} aria-label="Previous slide">
+            ‹
+          </NavButton>
 
-              <AccordionContent $isOpen={openIndex === index}>
-                <ContentInner>
-                  <ServiceDescription $isOpen={openIndex === index}>
-                    {service.description}
-                  </ServiceDescription>
-                  <FeatureList>
-                    {service.features.map((feature, fIndex) => (
-                      <FeatureItem key={fIndex} $isOpen={openIndex === index}>
-                        {feature}
-                      </FeatureItem>
-                    ))}
-                  </FeatureList>
-                  <LearnMoreButton
-                    href={service.link}
-                    $isOpen={openIndex === index}
-                  >
-                    Learn more
-                  </LearnMoreButton>
-                </ContentInner>
-              </AccordionContent>
-            </AccordionItem>
+          <CarouselContainer>
+            <CarouselTrack $currentSlide={currentSlide}>
+              {services.map((service, index) => (
+                <Slide key={index}>
+                  <ServiceCard>
+                    <ImagePlaceholder>
+                      Service Image Placeholder
+                    </ImagePlaceholder>
+                    <CardContent>
+                      <IconWrapper>{service.icon}</IconWrapper>
+                      <ServiceTitle>{service.title}</ServiceTitle>
+                      <ServiceDescription>{service.description}</ServiceDescription>
+                      <LearnMoreButton href={service.link}>
+                        Learn More
+                      </LearnMoreButton>
+                    </CardContent>
+                  </ServiceCard>
+                </Slide>
+              ))}
+            </CarouselTrack>
+          </CarouselContainer>
+
+          <NavButton $direction="next" onClick={nextSlide} aria-label="Next slide">
+            ›
+          </NavButton>
+        </CarouselWrapper>
+
+        <DotsContainer>
+          {services.map((_, index) => (
+            <Dot
+              key={index}
+              $active={currentSlide === index}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
-        </AccordionContainer>
+        </DotsContainer>
       </Container>
     </ServicesSection>
   );

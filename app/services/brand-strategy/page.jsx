@@ -11,23 +11,10 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   text-align: center;
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
-    pointer-events: none;
-  }
 `;
 
 const Container = styled.div`
@@ -41,8 +28,7 @@ const Title = styled.h1`
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: white;
 `;
 
 const Subtitle = styled.p`
@@ -52,6 +38,7 @@ const Subtitle = styled.p`
   margin: 0 auto;
   line-height: 1.8;
   font-weight: 400;
+  color: white;
 `;
 
 const ContentSection = styled.section`
@@ -69,58 +56,43 @@ const Grid = styled.div`
 const FeatureCard = styled.div`
   padding: 2.5rem;
   background: white;
-  border-radius: 24px;
-  border: 1px solid #e2e8f0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
-    border-color: #0066FF;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const FeatureIcon = styled.div`
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 `;
 
 const FeatureTitle = styled.h3`
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0f172a;
-  letter-spacing: -0.01em;
+  color: #1a1a2e;
 `;
 
 const FeatureText = styled.p`
-  color: #475569;
+  color: #546e7a;
   line-height: 1.8;
   font-size: 1.05rem;
 `;
 
 const ProcessSection = styled.div`
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 5rem 2rem;
-  border-radius: 32px;
+  border-radius: 8px;
   color: white;
   margin-top: 4rem;
-  box-shadow: 0 20px 50px rgba(0, 102, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-  }
 `;
 
 const ProcessTitle = styled.h2`
@@ -128,9 +100,9 @@ const ProcessTitle = styled.h2`
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
-  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
+  color: white;
 `;
 
 const ProcessSteps = styled.div`
@@ -149,7 +121,7 @@ const StepNumber = styled.div`
   width: 70px;
   height: 70px;
   background: white;
-  color: #0066FF;
+  color: #2196F3;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -157,40 +129,56 @@ const StepNumber = styled.div`
   font-size: 1.8rem;
   font-weight: 800;
   margin: 0 auto 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const StepTitle = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  color: white;
+`;
+
+const ImageSection = styled.div`
+  margin: 4rem 0;
+`;
+
+const ImagePlaceholder = styled.div`
+  height: 400px;
+  background: #e8eaf6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #546e7a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
 `;
 
 const CTASection = styled.div`
   text-align: center;
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 32px;
+  background: #f5f5f5;
+  border-radius: 8px;
   margin-top: 4rem;
-  border: 1px solid #e2e8f0;
 `;
 
 const CTAButton = styled(Link)`
   display: inline-block;
   padding: 1.4rem 3.5rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
   color: white;
-  border-radius: 50px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 1.15rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
   }
 `;
 
@@ -201,7 +189,7 @@ export default function BrandStrategyPage() {
       <PageWrapper>
         <HeroSection>
           <Container>
-            <Title>🎯 Brand Strategy</Title>
+            <Title>Brand Strategy</Title>
             <Subtitle>
               Build a powerful brand identity that resonates with your audience and
               sets you apart from the competition
@@ -211,7 +199,7 @@ export default function BrandStrategyPage() {
 
         <ContentSection>
           <Container>
-            <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#0f172a', letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '3rem', textAlign: 'center', color: '#1a1a2e' }}>
               What We Offer
             </h2>
 
@@ -271,6 +259,12 @@ export default function BrandStrategyPage() {
               </FeatureCard>
             </Grid>
 
+            <ImageSection>
+              <ImagePlaceholder>
+                [Brand Strategy Service Image]
+              </ImagePlaceholder>
+            </ImageSection>
+
             <ProcessSection>
               <ProcessTitle>Our Process</ProcessTitle>
               <ProcessSteps>
@@ -303,8 +297,8 @@ export default function BrandStrategyPage() {
             </ProcessSection>
 
             <CTASection>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#0f172a', fontWeight: '800', letterSpacing: '-0.02em' }}>Ready to Build Your Brand?</h2>
-              <p style={{ fontSize: '1.3rem', color: '#475569', marginBottom: '2.5rem', lineHeight: '1.8' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#1a1a2e', fontWeight: '800' }}>Ready to Build Your Brand?</h2>
+              <p style={{ fontSize: '1.3rem', color: '#546e7a', marginBottom: '2.5rem', lineHeight: '1.8' }}>
                 Let's create a brand strategy that drives growth
               </p>
               <CTAButton href="/contact">Get Started Today</CTAButton>

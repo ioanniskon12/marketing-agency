@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 const FooterSection = styled.footer`
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   padding: 4rem 2rem 2rem;
   position: relative;
@@ -16,7 +16,7 @@ const FooterSection = styled.footer`
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #0066FF, #6366F1, #EC4899);
+    background: #2196F3;
   }
 `;
 
@@ -37,16 +37,13 @@ const FooterColumn = styled.div``;
 const FooterTitle = styled.h3`
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
   font-weight: 800;
   letter-spacing: -0.02em;
 `;
 
 const FooterText = styled.p`
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -54,15 +51,15 @@ const FooterText = styled.p`
 
 const FooterLink = styled.a`
   display: block;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.9rem;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 500;
 
   &:hover {
-    color: #0066FF;
+    color: #2196F3;
     transform: translateX(4px);
   }
 `;
@@ -77,20 +74,19 @@ const SocialIcon = styled.a`
   width: 44px;
   height: 44px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:hover {
-    background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+    background: #2196F3;
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+    border-color: #2196F3;
   }
 `;
 
@@ -102,7 +98,7 @@ const Divider = styled.div`
 
 const Copyright = styled.div`
   text-align: center;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   font-weight: 500;
 `;

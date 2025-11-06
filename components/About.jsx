@@ -22,15 +22,12 @@ const SectionTitle = styled.h2`
   font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 900;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1a1a2e;
   letter-spacing: -0.03em;
 `;
 
 const AboutText = styled.p`
-  color: #475569;
+  color: #546e7a;
   line-height: 1.8;
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
@@ -48,33 +45,33 @@ const FeatureItem = styled.div`
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
+  background: rgba(33, 150, 243, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 
   &:hover {
-    border-color: rgba(0, 102, 255, 0.2);
+    border-color: rgba(33, 150, 243, 0.3);
     transform: translateX(8px);
-    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
   }
 `;
 
 const FeatureIcon = styled.div`
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 `;
 
 const FeatureText = styled.div`
-  color: #0f172a;
+  color: #1a1a2e;
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: -0.01em;
@@ -83,46 +80,32 @@ const FeatureText = styled.div`
 const AboutImage = styled.div`
   position: relative;
   height: 500px;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 50%, #EC4899 100%);
-  border-radius: 32px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(33, 150, 243, 0.2);
 
   &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-    filter: blur(40px);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 50%;
-    filter: blur(60px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(25, 118, 210, 0.1) 100%);
+    z-index: 1;
   }
 `;
 
 const ImageContent = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   text-align: center;
   color: white;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const ImageTitle = styled.div`
@@ -130,7 +113,7 @@ const ImageTitle = styled.div`
   font-weight: 900;
   margin-bottom: 1rem;
   line-height: 1;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: #2196F3;
 `;
 
 const ImageSubtitle = styled.div`
@@ -138,6 +121,26 @@ const ImageSubtitle = styled.div`
   opacity: 0.95;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.9);
+`;
+
+const TeamPhotoPlaceholder = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 0;
+
+  &::after {
+    content: 'Team Photo Placeholder';
+  }
 `;
 
 const features = [
@@ -173,6 +176,7 @@ export default function About() {
           </FeatureList>
         </AboutContent>
         <AboutImage>
+          <TeamPhotoPlaceholder />
           <ImageContent>
             <ImageTitle>10+</ImageTitle>
             <ImageSubtitle>Years of Excellence</ImageSubtitle>

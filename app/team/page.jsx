@@ -10,7 +10,7 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.section`
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
   text-align: center;
 `;
@@ -24,6 +24,7 @@ const Title = styled.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: white;
 `;
 
 const Subtitle = styled.p`
@@ -31,6 +32,7 @@ const Subtitle = styled.p`
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto;
+  color: white;
 `;
 
 const TeamSection = styled.section`
@@ -50,7 +52,7 @@ const TeamCard = styled.div`
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
   }
 `;
 
@@ -58,17 +60,20 @@ const Avatar = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: ${props => props.$color};
+  background: #e8eaf6;
   margin: 0 auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #546e7a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
 
   ${TeamCard}:hover & {
-    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -76,17 +81,17 @@ const MemberName = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #0f172a;
+  color: #1a1a2e;
 `;
 
 const MemberRole = styled.div`
-  color: #0066FF;
+  color: #2196F3;
   font-weight: 600;
   margin-bottom: 1rem;
 `;
 
 const MemberBio = styled.p`
-  color: #475569;
+  color: #546e7a;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 `;
@@ -101,7 +106,7 @@ const SocialLink = styled.a`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #f8f9fa;
+  background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +114,7 @@ const SocialLink = styled.a`
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(135deg, #0066FF 0%, #6366F1 100%);
+    background: linear-gradient(135deg, #2196F3 0%, #1976d2 100%);
     color: white;
     transform: translateY(-3px);
   }
@@ -117,8 +122,8 @@ const SocialLink = styled.a`
 
 const ValuesSection = styled.div`
   padding: 4rem 2rem;
-  background: #f8f9fa;
-  border-radius: 24px;
+  background: #f5f5f5;
+  border-radius: 8px;
 `;
 
 const ValuesGrid = styled.div`
@@ -142,11 +147,11 @@ const ValueTitle = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #0f172a;
+  color: #1a1a2e;
 `;
 
 const ValueText = styled.p`
-  color: #475569;
+  color: #546e7a;
   line-height: 1.6;
 `;
 
@@ -154,44 +159,32 @@ const team = [
   {
     name: 'Sarah Johnson',
     role: 'CEO & Founder',
-    bio: '15+ years in marketing strategy. Passionate about helping brands tell their stories.',
-    emoji: '👩‍💼',
-    color: 'linear-gradient(135deg, #0066FF 0%, #6366F1 100%)'
+    bio: '15+ years in marketing strategy. Passionate about helping brands tell their stories.'
   },
   {
     name: 'Michael Chen',
     role: 'Creative Director',
-    bio: 'Award-winning designer with a eye for detail and love for minimalist aesthetics.',
-    emoji: '👨‍🎨',
-    color: 'linear-gradient(135deg, #EC4899 0%, #F59E0B 100%)'
+    bio: 'Award-winning designer with a eye for detail and love for minimalist aesthetics.'
   },
   {
     name: 'Emma Williams',
     role: 'Head of Strategy',
-    bio: 'Data-driven strategist who turns insights into actionable marketing plans.',
-    emoji: '👩‍💻',
-    color: 'linear-gradient(135deg, #06B6D4 0%, #10B981 100%)'
+    bio: 'Data-driven strategist who turns insights into actionable marketing plans.'
   },
   {
     name: 'David Martinez',
     role: 'Social Media Lead',
-    bio: 'Social media guru who knows how to create viral content and engage communities.',
-    emoji: '👨‍💼',
-    color: 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)'
+    bio: 'Social media guru who knows how to create viral content and engage communities.'
   },
   {
     name: 'Lisa Anderson',
     role: 'Content Manager',
-    bio: 'Storyteller at heart. Creates compelling content that resonates with audiences.',
-    emoji: '👩‍✍️',
-    color: 'linear-gradient(135deg, #6366F1 0%, #0066FF 100%)'
+    bio: 'Storyteller at heart. Creates compelling content that resonates with audiences.'
   },
   {
     name: 'James Wilson',
     role: 'Video Producer',
-    bio: 'Filmmaker who brings brand stories to life through powerful visual narratives.',
-    emoji: '👨‍🎬',
-    color: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)'
+    bio: 'Filmmaker who brings brand stories to life through powerful visual narratives.'
   }
 ];
 
@@ -215,7 +208,7 @@ export default function TeamPage() {
             <Grid>
               {team.map((member, index) => (
                 <TeamCard key={index}>
-                  <Avatar $color={member.color}>{member.emoji}</Avatar>
+                  <Avatar>[Photo]</Avatar>
                   <MemberName>{member.name}</MemberName>
                   <MemberRole>{member.role}</MemberRole>
                   <MemberBio>{member.bio}</MemberBio>
@@ -229,10 +222,10 @@ export default function TeamPage() {
             </Grid>
 
             <ValuesSection>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '1rem', color: '#0f172a' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', textAlign: 'center', marginBottom: '1rem', color: '#1a1a2e' }}>
                 Our Core Values
               </h2>
-              <p style={{ textAlign: 'center', color: '#475569', fontSize: '1.2rem' }}>
+              <p style={{ textAlign: 'center', color: '#546e7a', fontSize: '1.2rem' }}>
                 The principles that guide everything we do
               </p>
               <ValuesGrid>
